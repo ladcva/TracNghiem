@@ -1,0 +1,71 @@
+﻿@model TracNghiemLTK.Models.LoginModel
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
+                    @using (Html.BeginForm())
+                    {
+                        <h1>Đăng nhập</h1>
+                        @Html.ValidationSummary(false, "", "alert alert-danger")
+                        <div>
+                            @Html.TextBoxFor(model=>model.Username, new { @type = "text", @class="form-control", @placeholder="Mã sinh viên", @required=""})
+                        </div>
+                        <div>
+                            @Html.TextBoxFor(model=>model.Password, new { @type = "password", @class="form-control", @placeholder="Mật khẩu", @required=""})
+                        </div>
+                        <div>      
+                            <button class="btn btn-default submit">Đăng nhập</button>        
+                            <a class="reset_pass" href="/Home/MaSinhVien">Quên mã sinh viên?</a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                            <p class="change_link">
+                                Không thể đăng nhập?
+                                <a href="#signup" class="to_register"> báo lỗi </a>
+                            </p>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                                <h1><i class="fa fa-paw"></i> Đinh Công Tân!</h1>
+                                <p>©2016 All Rights Reserved. Hệ thống trắc nghiệm THPT Lý Thường Kiệt. Privacy and Terms</p>
+                            </div>
+                        </div>
+                    }
+                </section> 
+            </div>
+            <div id="register" class="animate form registration_form">
+                <section class="login_content">
+                    <form>
+                        <h1>Báo lỗi</h1>
+                        <div>
+                            <input type="text" class="form-control" placeholder="Tài khoản" required="" />
+                        </div>
+                        <div>
+                            <input type="email" class="form-control" placeholder="Email" required="" />
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" placeholder="Nội dung" required="" />
+                        </div>
+                        <div>
+                            <a class="btn btn-default submit" href="index.html">Nộp đơn</a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                            <p class="change_link">
+                                Hủy báo lỗi ?
+                                <a href="#signin" class="to_register"> Đăng nhập </a>
+                            </p>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                                <h1><i class="fa fa-paw"></i> Đinh Công Tân!</h1>
+                                <p>©2016 All Rights Reserved. Hệ thống trắc nghiệm THPT Lý Thường Kiệt. Privacy and Terms</p>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>

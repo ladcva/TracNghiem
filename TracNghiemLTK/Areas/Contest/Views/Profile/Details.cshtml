@@ -1,0 +1,154 @@
+﻿@model List<DataLTK.ThiSinh>
+@{
+    ViewBag.Title = "Hồ sơ cá nhân";
+    Layout = "~/Areas/Contest/Views/Shared/_Layout.cshtml";
+    var ListKQ = (List<DataLTK.KetQua>)ViewBag.ListKQ;
+}
+
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Hồ sơ cá nhân</h3>
+        </div>
+        <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Hồ sơ <small>Báo cáo hoạt động</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                        <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                            <div class="profile_img">
+                                <div id="crop-avatar">
+                                    <!-- Current avatar -->
+                                    @if (Model.Select(x=>x.Image).FirstOrDefault() != null)
+                                    {
+                                        <img src="data:image/gif;base64,@Convert.ToBase64String(Model.Select(x=>x.Image).FirstOrDefault())" class="img-responsive avatar-view" />}
+                                    else
+                                    {
+                                        <img class="img-responsive avatar-view" src="~/Content/images/picture.jpg" alt="Avatar" title="Change the avatar">
+}
+                                </div>
+                            </div>
+                            <h3>@Model.Select(x => x.HoTen).FirstOrDefault()</h3>
+                            <ul class="list-unstyled user_data">
+                                <li>
+                                    <i class="fa fa-map-marker user-profile-icon"></i> Địa chỉ: @Model.Select(x=>x.DiaChi).FirstOrDefault()
+                                </li>
+                                <li>
+                                    <i class="fa fa-briefcase user-profile-icon"></i> Lớp: @Model.Select(x => x.Lop.TenLop).FirstOrDefault()
+                                </li>
+                                <li class="m-top-xs">
+                                    <i class="fa fa-external-link user-profile-icon"></i>
+                                    Giới tính: @(Model.Select(x => x.GioiTinh).FirstOrDefault() == true?"Nam":"Nữ")
+                                </li>
+                            </ul>
+                            <a class="btn btn-success" href="/Contest/Profile/Edit/@Url.RequestContext.RouteData.Values["id"]"><i class="fa fa-edit m-right-xs"></i>Sửa hồ sơ</a>
+                            <!-- end of skills -->
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="profile_title">
+                                <div class="col-md-6">
+                                    <h2>Báo cáo</h2>
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
+                                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                        <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Kết quả học tập</a>
+                                    </li>
+                                    <li role="presentation" class="">
+                                        <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Giới thiệu bản thân</a>
+                                    </li>
+                                </ul>
+                                <div id="myTabContent" class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                        <!-- start recent activity -->
+                                        <table class="data table table-striped no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Mã đề</th>
+                                                    <th>Môn thi</th>
+                                                    <th class="hidden-phone">Ngày thi</th>
+                                                    <th>Thành tích</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in ListKQ)
+                                                {
+                                                    <tr>
+                                                        <td>@item.MaKetQua</td>
+                                                        <td>@item.MaDe</td>
+                                                        <td>@item.DeThi.MonThi.TenMon</td>
+                                                        <td class="hidden-phone">@(item.NgayThi.HasValue?item.NgayThi.Value.ToString("dd/MM/yyyy"): "Không có dữ liệu")</td>
+                                                        <td class="vertical-align-mid">
+                                                            <div class="progress">
+                                                                <div class="progress-bar progress-bar-success" data-transitiongoal="@item.Diem"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+}
+                                                
+                                            </tbody>
+                                        </table>
+                                        <!-- end recent activity -->
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                                        <!-- start user projects -->
+                                        <p>
+                                            xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui
+                                            photo booth letterpress, commodo enim craft beer mlkshk
+                                        </p>
+                                        <!-- end user projects -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/vendors/raphael/raphael.min.js"></script>
+<script src="~/Content/vendors/morris.js/morris.min.js"></script>

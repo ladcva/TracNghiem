@@ -1,0 +1,105 @@
+﻿@model DataLTK.Quiz
+
+@{
+    ViewBag.Title = "Xóa câu hỏi";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Câu hỏi <small>Xóa bỏ</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#">Settings 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Settings 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+
+        <h3>Bạn có chắc chắn muốn xóa?</h3>
+        <div>
+            <dl class="dl-horizontal x_content">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CauHoi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CauHoi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.A)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.A)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.B)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.B)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.C)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.C)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.D)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.D)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DapAn)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DapAn)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MonThi.TenMon)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MonThi.TenMon)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Xóa" class="btn btn-danger" /> 
+                    @Html.ActionLink("Hủy bỏ", "Index","",new { @class = "btn btn-default" })
+                </div>}
+        </div>
+        </div>
+</div>

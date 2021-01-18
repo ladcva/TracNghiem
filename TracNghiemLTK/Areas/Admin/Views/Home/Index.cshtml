@@ -1,0 +1,209 @@
+﻿
+@{
+    ViewBag.Title = "Doashboard";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var ListDeThi = (List<DataLTK.DeThi>)ViewBag.ListDeThi;
+}
+<link href="/Content/vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+<link href="/Content/vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
+<!-- top tiles -->
+<div class="row tile_count">
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Thí sinh</span>
+        <div class="count">@ViewBag.SoHocSinh</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-clock-o"></i> Môn thi</span>
+        <div class="count">@ViewBag.SoMonThi</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Đề thi</span>
+        <div class="count green">@ViewBag.SoDeThi</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Câu hỏi</span>
+        <div class="count">@ViewBag.SoCauHoi</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Lớp học</span>
+        <div class="count">@ViewBag.SoLopHoc</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Ticket</span>
+        <div class="count">0</div>
+    </div>
+</div>
+<!-- /top tiles -->
+<div class="page-title">
+    <div class="title_left">
+        <h3>Lịch biểu <small>Click để thêm hoặc sửa sự kiện</small></h3>
+    </div>
+    <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-sm-9">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Sự kiện <small>lịch trình</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div id='calendar'></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Danh sách đề thi</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <table class="table table-striped jambo_table bulk_action">
+                    @foreach(var item in ListDeThi)
+                {
+                    <tr>
+                        <td>@item.MaDe</td>
+                        <td>@item.MonThi.TenMon</td>
+                        <td> @if(item.Status == true)
+                                {
+                                    <span class="btn btn-success btn-xs">Mở</span>
+}
+                                else
+                                {
+                                    <span class="btn btn-danger btn-xs">Đóng</span>
+}</td>
+                    </tr>
+                }
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- calendar modal -->
+<div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Sự kiện mới</h4>
+            </div>
+            <div class="modal-body">
+                <div id="testmodal" style="padding: 5px 20px;">
+                    <form id="antoform" class="form-horizontal calender" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Tiêu đề</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="title" name="title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Nội dung</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" style="height:55px;" id="descr" name="descr"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary antosubmit">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="CalenderModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel2">Chỉnh sửa sự kiện</h4>
+            </div>
+            <div class="modal-body">
+                <div id="testmodal2" style="padding: 5px 20px;">
+                    <form id="antoform2" class="form-horizontal calender" role="form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Tiêu đề</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="title2" name="title2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Nội dung</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" style="height:55px;" id="descr2" name="descr"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary antosubmit2">Lưu</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
+<div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
+<!-- /calendar modal -->
+    
+<!-- FastClick -->
+<script src="/Content/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="/Content/vendors/nprogress/nprogress.js"></script>
+<!-- FullCalendar -->
+<script src="/Content/vendors/moment/min/moment.min.js"></script>
+<script src="/Content/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+

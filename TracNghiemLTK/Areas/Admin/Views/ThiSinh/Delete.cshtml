@@ -1,0 +1,95 @@
+﻿@model DataLTK.ThiSinh
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Thí sinh <small>Xóa bỏ</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#">Settings 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Settings 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <h3 class="alert alert-danger">Xác nhận xóa?</h3>
+        <div>
+            <dl class="dl-horizontal x_content">
+                <dt>
+                    @Html.DisplayNameFor(model => model.HoTen)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.HoTen)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GioiTinh)
+                </dt>
+
+                <dd>
+                    @if (Model.GioiTinh == true)
+                    {
+                        <i class="fa fa-male"></i> @Html.DisplayName("Nam")
+}
+                    else
+                    {
+                        <i class="fa fa-female"></i> @Html.DisplayName("Nữ")
+}
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NgaySinh)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NgaySinh)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DiaChi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DiaChi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Lop.TenLop)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Lop.TenLop)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    @Html.ActionLink("Hủy bỏ", "Index", "" ,htmlAttributes: new { @class= "btn btn-default" })
+                </div>}
+        </div>
+        </div>
+</div>

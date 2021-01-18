@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách câu hỏi";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model PagedList.IPagedList<DataLTK.Quiz>
+@using PagedList.Mvc;
+
+<div class="title_right">
+    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Nhập từ khóa...">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Câu hỏi <small>Danh sách câu hỏi</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#">Settings 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Settings 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <p>Note: <code><i class="fa fa-image"></i></code> câu hỏi có kèm hình ảnh</p>
+        <div class="x_content">
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>Mã Câu hỏi</th>
+                        <th>Nội Dung</th>
+                        <th>Môn thi</th>
+                        <th>Tác vụ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="row_@item.MaCauHoi">
+                            <td>
+                            @item.MaCauHoi
+                            </td>
+                            <td>
+                                @if(@item.Picture != null)
+                                {
+                                    <i class="fa fa-image"></i>
+                                }
+                                else
+                                {
+                                    <i class="fa fa-question-circle"></i>
+                                }
+                            @item.CauHoi</td>
+                            <td>@item.MonThi.TenMon</td>
+                            <td>
+                                <a href="/Admin/Quiz/Edit/@item.MaCauHoi" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Sửa </a>
+                                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaCauHoi }, new AjaxOptions
+                           {
+                               Confirm = "Xác nhận xóa!",
+                               OnComplete = "$('#row_" + item.MaCauHoi + "').remove()",
+                               HttpMethod = "Delete"
+                           }, new { @class = "btn btn-danger btn-xs" })
+                            </td>
+                        </tr>}
+
+                </tbody>
+            </table>
+            @Html.PagedListPager(Model,page => Url.Action("Index", new { page }))
+            <a href="/Admin/Quiz/Create" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</a>
+        </div>
+    </div>
+</div>
+
+
+

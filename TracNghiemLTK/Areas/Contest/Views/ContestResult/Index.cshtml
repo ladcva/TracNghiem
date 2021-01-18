@@ -1,0 +1,101 @@
+﻿@model List<DataLTK.KetQua>
+@{
+    ViewBag.Title = "Kết quả";
+    Layout = "~/Areas/Contest/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Kết quả thi</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                    @foreach(var item in Model)
+                    {
+                <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+
+                    <div class="profile_img">
+                        <div id="crop-avatar">
+                            <!-- Current avatar -->
+                            @if (item.ThiSinh.Image != null)
+                            {
+                                <img src="data:image/gif;base64,@Convert.ToBase64String(item.ThiSinh.Image)" class="img-responsive avatar-view" />}
+                            else
+                            {
+                                <img class="img-responsive avatar-view" src="~/Content/images/picture.jpg" alt="Avatar" title="Change the avatar">
+}
+                        </div>
+                    </div>
+                    <h3>@item.ThiSinh.HoTen</h3>
+
+                    <ul class="list-unstyled user_data">
+                        <li>
+                            <i class="fa fa-map-marker user-profile-icon"></i> Địa chỉ: @item.ThiSinh.DiaChi
+                        </li>
+
+                        <li>
+                            <i class="fa fa-briefcase user-profile-icon"></i> Ngày sinh: @(item.ThiSinh.NgaySinh.HasValue ? item.ThiSinh.NgaySinh.Value.ToString("dd/MM/yyyy") : "Chưa rõ")
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+
+                    <div class="profile_title">
+                        <div class="col-md-6">
+                            <h2>Điểm số</h2>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
+                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                <span>@DateTime.Now</span> <b class="caret"></b>
+                            </div>
+                            </div>
+                        <div class="clear"></div>
+                        
+                        
+                        </div>
+                    <div class="col-md-9 x_content">
+                        <ul class="list-group">
+                            <li class="list-group-item">Ngày thi: @(item.NgayThi.HasValue ? item.NgayThi.Value.ToString("dd/MM/yyyy") : "Không có dữ liệu")</li>
+                            <li class="list-group-item">Mã đề: @item.MaDe</li>
+                            <li class="list-group-item">Điểm số: @item.Diem</li>
+                            @if (item.Diem > 50)
+                            {
+                                <li class="list-group-item">Kết quả: <font color="green">Đạt</font></li>
+}
+                            else
+                            {
+                                <li class="list-group-item">Kết quả: <font color="red">Không đạt</font></li>
+}
+                        </ul>
+
+                    </div>
+                    <div class="col-md-9 x_content" style="text-align:center">
+                        <a class="btn btn-success" href="/Contest/Default"><i class="fa fa-edit m-right-xs"></i>Trở về trang chủ</a>
+                    </div>
+                    </div>}
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,687 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TracNghiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ch_db">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaCauHoi" Type="int" />
+          <Property Name="MaDe" Type="int" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DeThi">
+          <Key>
+            <PropertyRef Name="MaDe" />
+          </Key>
+          <Property Name="MaDe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
+          <Property Name="MaMon" Type="int" />
+          <Property Name="LoaiDe" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="date" />
+          <Property Name="CreateBy" Type="int" />
+          <Property Name="MaxQuiz" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Time" Type="int" />
+          <Property Name="Audio" Type="nvarchar" MaxLength="250" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KetQua">
+          <Key>
+            <PropertyRef Name="MaKetQua" />
+          </Key>
+          <Property Name="MaKetQua" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaThiSinh" Type="int" />
+          <Property Name="NgayThi" Type="date" />
+          <Property Name="Diem" Type="float" />
+          <Property Name="MaDe" Type="int" />
+        </EntityType>
+        <EntityType Name="Lop">
+          <Key>
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaLop" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLop" Type="nvarchar" MaxLength="50" />
+          <Property Name="Khoi" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiSo" Type="int" />
+        </EntityType>
+        <EntityType Name="MonThi">
+          <Key>
+            <PropertyRef Name="MaMon" />
+          </Key>
+          <Property Name="MaMon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenMon" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Quiz">
+          <Key>
+            <PropertyRef Name="MaCauHoi" />
+          </Key>
+          <Property Name="MaCauHoi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaMon" Type="int" />
+          <Property Name="CauHoi" Type="nvarchar" MaxLength="250" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="A" Type="nvarchar" MaxLength="50" />
+          <Property Name="B" Type="nvarchar" MaxLength="50" />
+          <Property Name="C" Type="nvarchar" MaxLength="50" />
+          <Property Name="D" Type="nvarchar" MaxLength="50" />
+          <Property Name="DapAn" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Quyen">
+          <Key>
+            <PropertyRef Name="MaQuyen" />
+          </Key>
+          <Property Name="MaQuyen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="50" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaQuyen" Type="int" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="GioiTinh" Type="bit" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="150" />
+          <Property Name="SDT" Type="int" />
+          <Property Name="Image" Type="image" />
+        </EntityType>
+        <EntityType Name="ThiSinh">
+          <Key>
+            <PropertyRef Name="MaThiSinh" />
+          </Key>
+          <Property Name="MaThiSinh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="GioiTinh" Type="bit" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="DanToc" Type="nvarchar" MaxLength="20" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaLop" Type="int" />
+          <Property Name="NienKhoa" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="image" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_ch_db_DeThi">
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="0..1" />
+          <End Role="ch_db" Type="Self.ch_db" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeThi">
+              <PropertyRef Name="MaDe" />
+            </Principal>
+            <Dependent Role="ch_db">
+              <PropertyRef Name="MaDe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ch_db_Quiz">
+          <End Role="Quiz" Type="Self.Quiz" Multiplicity="0..1" />
+          <End Role="ch_db" Type="Self.ch_db" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quiz">
+              <PropertyRef Name="MaCauHoi" />
+            </Principal>
+            <Dependent Role="ch_db">
+              <PropertyRef Name="MaCauHoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_MonThi">
+          <End Role="MonThi" Type="Self.MonThi" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonThi">
+              <PropertyRef Name="MaMon" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaMon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_TaiKhoan">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="CreateBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KetQua_DeThi">
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="0..1" />
+          <End Role="KetQua" Type="Self.KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeThi">
+              <PropertyRef Name="MaDe" />
+            </Principal>
+            <Dependent Role="KetQua">
+              <PropertyRef Name="MaDe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KetQua_ThiSinh">
+          <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="0..1" />
+          <End Role="KetQua" Type="Self.KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThiSinh">
+              <PropertyRef Name="MaThiSinh" />
+            </Principal>
+            <Dependent Role="KetQua">
+              <PropertyRef Name="MaThiSinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quiz_MonThi">
+          <End Role="MonThi" Type="Self.MonThi" Multiplicity="0..1" />
+          <End Role="Quiz" Type="Self.Quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonThi">
+              <PropertyRef Name="MaMon" />
+            </Principal>
+            <Dependent Role="Quiz">
+              <PropertyRef Name="MaMon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoan_Quyen">
+          <End Role="Quyen" Type="Self.Quyen" Multiplicity="0..1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quyen">
+              <PropertyRef Name="MaQuyen" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="MaQuyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThiSinh_Lop">
+          <End Role="Lop" Type="Self.Lop" Multiplicity="0..1" />
+          <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="ThiSinh">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TracNghiemModelStoreContainer">
+          <EntitySet Name="ch_db" EntityType="Self.ch_db" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeThi" EntityType="Self.DeThi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KetQua" EntityType="Self.KetQua" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lop" EntityType="Self.Lop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonThi" EntityType="Self.MonThi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quiz" EntityType="Self.Quiz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quyen" EntityType="Self.Quyen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThiSinh" EntityType="Self.ThiSinh" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ch_db_DeThi" Association="Self.FK_ch_db_DeThi">
+            <End Role="DeThi" EntitySet="DeThi" />
+            <End Role="ch_db" EntitySet="ch_db" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ch_db_Quiz" Association="Self.FK_ch_db_Quiz">
+            <End Role="Quiz" EntitySet="Quiz" />
+            <End Role="ch_db" EntitySet="ch_db" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_MonThi" Association="Self.FK_DeThi_MonThi">
+            <End Role="MonThi" EntitySet="MonThi" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_TaiKhoan" Association="Self.FK_DeThi_TaiKhoan">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KetQua_DeThi" Association="Self.FK_KetQua_DeThi">
+            <End Role="DeThi" EntitySet="DeThi" />
+            <End Role="KetQua" EntitySet="KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KetQua_ThiSinh" Association="Self.FK_KetQua_ThiSinh">
+            <End Role="ThiSinh" EntitySet="ThiSinh" />
+            <End Role="KetQua" EntitySet="KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quiz_MonThi" Association="Self.FK_Quiz_MonThi">
+            <End Role="MonThi" EntitySet="MonThi" />
+            <End Role="Quiz" EntitySet="Quiz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoan_Quyen" Association="Self.FK_TaiKhoan_Quyen">
+            <End Role="Quyen" EntitySet="Quyen" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ThiSinh_Lop" Association="Self.FK_ThiSinh_Lop">
+            <End Role="Lop" EntitySet="Lop" />
+            <End Role="ThiSinh" EntitySet="ThiSinh" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TracNghiemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Quyen">
+          <Key>
+            <PropertyRef Name="MaQuyen" />
+          </Key>
+          <Property Name="MaQuyen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MoTa" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TaiKhoans" Relationship="TracNghiemModel.FK_TaiKhoan_Quyen" FromRole="Quyen" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityContainer Name="TracNghiemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Quyens" EntityType="Self.Quyen" />
+          <EntitySet Name="MonThis" EntityType="TracNghiemModel.MonThi" />
+          <EntitySet Name="ch_db" EntityType="TracNghiemModel.ch_db" />
+          <EntitySet Name="ThiSinhs" EntityType="TracNghiemModel.ThiSinh" />
+          <EntitySet Name="KetQuas" EntityType="TracNghiemModel.KetQua" />
+          <AssociationSet Name="FK_KetQua_ThiSinh" Association="TracNghiemModel.FK_KetQua_ThiSinh">
+            <End Role="ThiSinh" EntitySet="ThiSinhs" />
+            <End Role="KetQua" EntitySet="KetQuas" />
+          </AssociationSet>
+          <EntitySet Name="DeThis" EntityType="TracNghiemModel.DeThi" />
+          <EntitySet Name="Lops" EntityType="TracNghiemModel.Lop" />
+          <EntitySet Name="Quizs" EntityType="TracNghiemModel.Quiz" />
+          <EntitySet Name="TaiKhoans" EntityType="TracNghiemModel.TaiKhoan" />
+          <AssociationSet Name="FK_ch_db_DeThi" Association="TracNghiemModel.FK_ch_db_DeThi">
+            <End Role="DeThi" EntitySet="DeThis" />
+            <End Role="ch_db" EntitySet="ch_db" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ch_db_Quiz" Association="TracNghiemModel.FK_ch_db_Quiz">
+            <End Role="Quiz" EntitySet="Quizs" />
+            <End Role="ch_db" EntitySet="ch_db" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_MonThi" Association="TracNghiemModel.FK_DeThi_MonThi">
+            <End Role="MonThi" EntitySet="MonThis" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_TaiKhoan" Association="TracNghiemModel.FK_DeThi_TaiKhoan">
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KetQua_DeThi" Association="TracNghiemModel.FK_KetQua_DeThi">
+            <End Role="DeThi" EntitySet="DeThis" />
+            <End Role="KetQua" EntitySet="KetQuas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ThiSinh_Lop" Association="TracNghiemModel.FK_ThiSinh_Lop">
+            <End Role="Lop" EntitySet="Lops" />
+            <End Role="ThiSinh" EntitySet="ThiSinhs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quiz_MonThi" Association="TracNghiemModel.FK_Quiz_MonThi">
+            <End Role="MonThi" EntitySet="MonThis" />
+            <End Role="Quiz" EntitySet="Quizs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoan_Quyen" Association="TracNghiemModel.FK_TaiKhoan_Quyen">
+            <End Role="Quyen" EntitySet="Quyens" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="MonThi">
+          <Key>
+            <PropertyRef Name="MaMon" />
+          </Key>
+          <Property Name="MaMon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenMon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DeThis" Relationship="TracNghiemModel.FK_DeThi_MonThi" FromRole="MonThi" ToRole="DeThi" />
+          <NavigationProperty Name="Quizs" Relationship="TracNghiemModel.FK_Quiz_MonThi" FromRole="MonThi" ToRole="Quiz" />
+        </EntityType>
+        <EntityType Name="ch_db">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaCauHoi" Type="Int32" />
+          <Property Name="MaDe" Type="Int32" />
+          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DeThi" Relationship="TracNghiemModel.FK_ch_db_DeThi" FromRole="ch_db" ToRole="DeThi" />
+          <NavigationProperty Name="Quiz" Relationship="TracNghiemModel.FK_ch_db_Quiz" FromRole="ch_db" ToRole="Quiz" />
+        </EntityType>
+        <EntityType Name="ThiSinh">
+          <Key>
+            <PropertyRef Name="MaThiSinh" />
+          </Key>
+          <Property Name="MaThiSinh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="Boolean" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="DanToc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaLop" Type="Int32" />
+          <Property Name="NienKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KetQuas" Relationship="TracNghiemModel.FK_KetQua_ThiSinh" FromRole="ThiSinh" ToRole="KetQua" />
+          <NavigationProperty Name="Lop" Relationship="TracNghiemModel.FK_ThiSinh_Lop" FromRole="ThiSinh" ToRole="Lop" />
+        </EntityType>
+        <EntityType Name="KetQua">
+          <Key>
+            <PropertyRef Name="MaKetQua" />
+          </Key>
+          <Property Name="MaKetQua" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaThiSinh" Type="Int32" />
+          <Property Name="NgayThi" Type="DateTime" Precision="0" />
+          <Property Name="Diem" Type="Double" />
+          <Property Name="MaDe" Type="Int32" />
+          <NavigationProperty Name="ThiSinh" Relationship="TracNghiemModel.FK_KetQua_ThiSinh" FromRole="KetQua" ToRole="ThiSinh" />
+          <NavigationProperty Name="DeThi" Relationship="TracNghiemModel.FK_KetQua_DeThi" FromRole="KetQua" ToRole="DeThi" />
+        </EntityType>
+        <Association Name="FK_KetQua_ThiSinh">
+          <End Type="TracNghiemModel.ThiSinh" Role="ThiSinh" Multiplicity="0..1" />
+          <End Type="TracNghiemModel.KetQua" Role="KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThiSinh">
+              <PropertyRef Name="MaThiSinh" />
+            </Principal>
+            <Dependent Role="KetQua">
+              <PropertyRef Name="MaThiSinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DeThi">
+          <Key>
+            <PropertyRef Name="MaDe" />
+          </Key>
+          <Property Name="MaDe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MaMon" Type="Int32" />
+          <Property Name="LoaiDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="CreateBy" Type="Int32" />
+          <Property Name="MaxQuiz" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Time" Type="Int32" />
+          <Property Name="Audio" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ch_db" Relationship="TracNghiemModel.FK_ch_db_DeThi" FromRole="DeThi" ToRole="ch_db" />
+          <NavigationProperty Name="MonThi" Relationship="TracNghiemModel.FK_DeThi_MonThi" FromRole="DeThi" ToRole="MonThi" />
+          <NavigationProperty Name="TaiKhoan" Relationship="TracNghiemModel.FK_DeThi_TaiKhoan" FromRole="DeThi" ToRole="TaiKhoan" />
+          <NavigationProperty Name="KetQuas" Relationship="TracNghiemModel.FK_KetQua_DeThi" FromRole="DeThi" ToRole="KetQua" />
+        </EntityType>
+        <EntityType Name="Lop">
+          <Key>
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaLop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Khoi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiSo" Type="Int32" />
+          <NavigationProperty Name="ThiSinhs" Relationship="TracNghiemModel.FK_ThiSinh_Lop" FromRole="Lop" ToRole="ThiSinh" />
+        </EntityType>
+        <EntityType Name="Quiz">
+          <Key>
+            <PropertyRef Name="MaCauHoi" />
+          </Key>
+          <Property Name="MaCauHoi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaMon" Type="Int32" />
+          <Property Name="CauHoi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="A" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="B" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="D" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DapAn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ch_db" Relationship="TracNghiemModel.FK_ch_db_Quiz" FromRole="Quiz" ToRole="ch_db" />
+          <NavigationProperty Name="MonThi" Relationship="TracNghiemModel.FK_Quiz_MonThi" FromRole="Quiz" ToRole="MonThi" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaQuyen" Type="Int32" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="Boolean" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="DiaChi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="Int32" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="DeThis" Relationship="TracNghiemModel.FK_DeThi_TaiKhoan" FromRole="TaiKhoan" ToRole="DeThi" />
+          <NavigationProperty Name="Quyen" Relationship="TracNghiemModel.FK_TaiKhoan_Quyen" FromRole="TaiKhoan" ToRole="Quyen" />
+        </EntityType>
+        <Association Name="FK_ch_db_DeThi">
+          <End Type="TracNghiemModel.DeThi" Role="DeThi" Multiplicity="0..1" />
+          <End Type="TracNghiemModel.ch_db" Role="ch_db" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeThi">
+              <PropertyRef Name="MaDe" />
+            </Principal>
+            <Dependent Role="ch_db">
+              <PropertyRef Name="MaDe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ch_db_Quiz">
+          <End Type="TracNghiemModel.Quiz" Role="Quiz" Multiplicity="0..1" />
+          <End Type="TracNghiemModel.ch_db" Role="ch_db" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quiz">
+              <PropertyRef Name="MaCauHoi" />
+            </Principal>
+            <Dependent Role="ch_db">
+              <PropertyRef Name="MaCauHoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_MonThi">
+          <End Type="TracNghiemModel.MonThi" Role="MonThi" Multiplicity="0..1" />
+          <End Type="TracNghiemModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonThi">
+              <PropertyRef Name="MaMon" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaMon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_TaiKhoan">
+          <End Type="TracNghiemModel.TaiKhoan" Role="TaiKhoan" Multiplicity="0..1" />
+          <End Type="TracNghiemModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="CreateBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KetQua_DeThi">
+          <End Type="TracNghiemModel.DeThi" Role="DeThi" Multiplicity="0..1" />
+          <End Type="TracNghiemModel.KetQua" Role="KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeThi">
+              <PropertyRef Name="MaDe" />
+            </Principal>
+            <Dependent Role="KetQua">
+              <PropertyRef Name="MaDe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThiSinh_Lop">
+          <End Type="TracNghiemModel.Lop" Role="Lop" Multiplicity="0..1" />
+          <End Type="TracNghiemModel.ThiSinh" Role="ThiSinh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="ThiSinh">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quiz_MonThi">
+          <End Type="TracNghiemModel.MonThi" Role="MonThi" Multiplicity="0..1" />
+          <End Type="TracNghiemModel.Quiz" Role="Quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonThi">
+              <PropertyRef Name="MaMon" />
+            </Principal>
+            <Dependent Role="Quiz">
+              <PropertyRef Name="MaMon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoan_Quyen">
+          <End Type="TracNghiemModel.Quyen" Role="Quyen" Multiplicity="0..1" />
+          <End Type="TracNghiemModel.TaiKhoan" Role="TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quyen">
+              <PropertyRef Name="MaQuyen" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="MaQuyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TracNghiemModelStoreContainer" CdmEntityContainer="TracNghiemEntities">
+          <EntitySetMapping Name="Quyens">
+            <EntityTypeMapping TypeName="TracNghiemModel.Quyen">
+              <MappingFragment StoreEntitySet="Quyen">
+                <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonThis">
+            <EntityTypeMapping TypeName="TracNghiemModel.MonThi">
+              <MappingFragment StoreEntitySet="MonThi">
+                <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+                <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ch_db">
+            <EntityTypeMapping TypeName="TracNghiemModel.ch_db">
+              <MappingFragment StoreEntitySet="ch_db">
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="MaDe" ColumnName="MaDe" />
+                <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThiSinhs">
+            <EntityTypeMapping TypeName="TracNghiemModel.ThiSinh">
+              <MappingFragment StoreEntitySet="ThiSinh">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="NienKhoa" ColumnName="NienKhoa" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MaThiSinh" ColumnName="MaThiSinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KetQuas">
+            <EntityTypeMapping TypeName="TracNghiemModel.KetQua">
+              <MappingFragment StoreEntitySet="KetQua">
+                <ScalarProperty Name="MaDe" ColumnName="MaDe" />
+                <ScalarProperty Name="Diem" ColumnName="Diem" />
+                <ScalarProperty Name="NgayThi" ColumnName="NgayThi" />
+                <ScalarProperty Name="MaThiSinh" ColumnName="MaThiSinh" />
+                <ScalarProperty Name="MaKetQua" ColumnName="MaKetQua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeThis">
+            <EntityTypeMapping TypeName="TracNghiemModel.DeThi">
+              <MappingFragment StoreEntitySet="DeThi">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Audio" ColumnName="Audio" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MaxQuiz" ColumnName="MaxQuiz" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="LoaiDe" ColumnName="LoaiDe" />
+                <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="MaDe" ColumnName="MaDe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lops">
+            <EntityTypeMapping TypeName="TracNghiemModel.Lop">
+              <MappingFragment StoreEntitySet="Lop">
+                <ScalarProperty Name="SiSo" ColumnName="SiSo" />
+                <ScalarProperty Name="Khoi" ColumnName="Khoi" />
+                <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quizs">
+            <EntityTypeMapping TypeName="TracNghiemModel.Quiz">
+              <MappingFragment StoreEntitySet="Quiz">
+                <ScalarProperty Name="DapAn" ColumnName="DapAn" />
+                <ScalarProperty Name="D" ColumnName="D" />
+                <ScalarProperty Name="C" ColumnName="C" />
+                <ScalarProperty Name="B" ColumnName="B" />
+                <ScalarProperty Name="A" ColumnName="A" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="CauHoi" ColumnName="CauHoi" />
+                <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+                <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="TracNghiemModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

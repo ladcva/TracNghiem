@@ -1,0 +1,78 @@
+﻿@model List<DataLTK.DeThi>
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Areas/Contest/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Đề thi <small>Chọn một đề thi</small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#">Cài đặt 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Cài đặt 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <table class="table table-striped jambo_table bulk_action">
+                <thead>
+                    <tr class="headings">
+                        <th class="column-title">Mã đề </th>
+                        <th class="column-title">Môn thi </th>
+                        <th class="column-title">Trạng thái </th>
+                        <th class="column-title no-link last">
+                            <span class="nobr">Tác vụ</span>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="even pointer">
+                            <td class=" ">@item.MaDe</td>
+                            <td class=" ">@item.MonThi.TenMon </td>
+                            <td class=" ">
+                                @if(item.Status == true)
+                                {
+                                    <span class="btn btn-success btn-xs">Mở</span>
+}
+                                else
+                                {
+                                    <span class="btn btn-danger btn-xs">Đóng</span>
+}
+                            </td>
+                            <td class=" last">
+                                @if (item.Status == true)
+                                {
+                                    @Html.ActionLink("Vào thi", "EnterContest", new { id = item.MaDe }, new { @class = "text-success" })
+}
+                                else
+                                {
+                                    <span class="text-danger">Vào thi</span>
+}
+                               
+                            </td>
+                        </tr>}
+                    
+                </tbody>
+            </table>
+        </div>
+</div>
+</div>

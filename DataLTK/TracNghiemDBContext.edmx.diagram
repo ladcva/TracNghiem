@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="28d69fc0499243a4bfbde6401a906705" Name="Diagram1">
+        <EntityTypeShape EntityType="TracNghiemModel.Quyen" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TracNghiemModel.MonThi" Width="1.5" PointX="3.75" PointY="5.625" />
+        <EntityTypeShape EntityType="TracNghiemModel.ch_db" Width="1.5" PointX="8.25" PointY="9.625" />
+        <EntityTypeShape EntityType="TracNghiemModel.ThiSinh" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="TracNghiemModel.KetQua" Width="1.5" PointX="8.25" PointY="4.375" />
+        <AssociationConnector Association="TracNghiemModel.FK_KetQua_ThiSinh" />
+        <EntityTypeShape EntityType="TracNghiemModel.DeThi" Width="1.5" PointX="6" PointY="9.625" />
+        <EntityTypeShape EntityType="TracNghiemModel.Lop" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="TracNghiemModel.Quiz" Width="1.5" PointX="6" PointY="5" />
+        <EntityTypeShape EntityType="TracNghiemModel.TaiKhoan" Width="1.5" PointX="3.75" PointY="9.875" />
+        <AssociationConnector Association="TracNghiemModel.FK_ch_db_DeThi" />
+        <AssociationConnector Association="TracNghiemModel.FK_ch_db_Quiz" />
+        <AssociationConnector Association="TracNghiemModel.FK_DeThi_MonThi" />
+        <AssociationConnector Association="TracNghiemModel.FK_DeThi_TaiKhoan" />
+        <AssociationConnector Association="TracNghiemModel.FK_KetQua_DeThi" />
+        <AssociationConnector Association="TracNghiemModel.FK_ThiSinh_Lop" />
+        <AssociationConnector Association="TracNghiemModel.FK_Quiz_MonThi" />
+        <AssociationConnector Association="TracNghiemModel.FK_TaiKhoan_Quyen" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

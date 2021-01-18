@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Lớp";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model List<DataLTK.Lop>
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Lớp <small>Danh sách</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="#">Settings 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Settings 2</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        @if(TempData["AlertMessage"] != null)
+        {
+            <div class="alert @TempData["AlertType"] hide" id="AlertBox">
+                @TempData["AlertMessage"]
+            </div>
+        }
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Mã lớp</th>
+                    <th>Tên Lớp</th>
+                    <th>Khối</th>
+                    <th>Tác vụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr id="row_@item.MaLop">
+                        <th scope="row">@item.MaLop</th>
+                        <td>@item.TenLop</td>
+                        <td>@item.Khoi</td>
+                        <td>
+                            <a href="/Admin/Lop/Edit/@item.MaLop" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Chỉnh sửa </a>
+                            @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaLop }, new AjaxOptions
+                       {
+                           Confirm ="Xác nhận xóa!",
+                           OnComplete = "$('#row_" + item.MaLop + "').remove()",
+                           HttpMethod = "Delete"
+                       }, new { @class = "btn btn-danger btn-xs" })
+                        </td>
+                    </tr>
+               }
+                
+            </tbody>
+        </table>
+        <a href="/Admin/Lop/Create" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</a>
+    </div>
+</div>
+

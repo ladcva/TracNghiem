@@ -1,0 +1,127 @@
+﻿@model TracNghiemLTK.Areas.Contest.Models.ContestModel
+@{
+    ViewBag.Title = "Làm bài thi";
+    Layout = "~/Areas/Contest/Views/Shared/_Layout.cshtml";
+}
+
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Đề bài <small>Làm bài thi</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="#">Settings 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Settings 2</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+        </ul>
+        @if (@Model.ListQuiz.Select(u => u.DeThi.Audio).FirstOrDefault() != null)
+        {
+            <audio controls>
+                <source src="/Content/audio/@Model.ListQuiz.Select(u=>u.DeThi.Audio).FirstOrDefault()" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        }
+        else
+        {
+            <div></div>
+        }
+        <div class="clearfix"></div>
+    </div>
+        <script>
+            function startTimer(duration, display) {
+                var timer = duration, minutes, seconds;
+                setInterval(function () {
+                    minutes = parseInt(timer / 60, 10)
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = minutes + ":" + seconds;
+
+                    if (--timer < 0) {
+                        timer = duration;
+                    }
+                }, 1000);
+            }
+
+            window.onload = function () {
+                var fiveMinutes = 60 * @Model.Time,
+                    display = document.querySelector('#time');
+                startTimer(fiveMinutes, display);
+            };
+            setTimeout(function () {
+
+                alert("Đã hết giờ, Vui lòng nộp bài!");
+                $('#tanhidden').addClass('hide');
+            }, (60000 * @Model.Time))
+        </script>
+    <style>
+        .navbar-fixed-top {
+            padding-right: 80px;
+            top: 130px
+        }
+        code {
+            padding: 50px 40px 45px 40px;
+            font-weight: bold;
+            font-size: 25px;
+            background: url(/Content/images/timeclock.png) no-repeat;
+        }
+    </style>
+    <div class="x_content">
+        @using (Html.BeginForm())
+        {
+            <div id="tanhidden">
+                <p style="text-align:right" class="navbar-fixed-top"><code id="time"></code></p>
+                @for(int i=0;i<Model.ListQuiz.Count;i++) {
+                <fieldset>
+                    <legend>
+                        <label>@i. </label>
+                    @Model.ListQuiz[i].Quiz.CauHoi
+                    @if(Model.ListQuiz[i].Quiz.Picture != null)
+                    {
+                        <p><img src="data:image/gif;base64,@Convert.ToBase64String(Model.ListQuiz[i].Quiz.Picture)"  class="img-thumbnail"/></p>
+                    }
+                    else
+                    {
+
+                    }
+                    </legend>
+                    @Html.HiddenFor(model => model.ListQuiz[i].MaCauHoi)
+                    <div class="radio">
+                        @Html.RadioButtonFor(model => model.ListQuiz[i].SelectedAnswer, "A", new { @class = "flat" })
+                        @Model.ListQuiz[i].Quiz.A
+                    </div>
+                    <div class="radio">
+                        @Html.RadioButtonFor(model => model.ListQuiz[i].SelectedAnswer, "B", new { @class = "flat" })
+                        @Model.ListQuiz[i].Quiz.B
+                    </div>
+                    <div class="radio">
+                        @Html.RadioButtonFor(model => model.ListQuiz[i].SelectedAnswer, "C", new { @class = "flat" })
+                        @Model.ListQuiz[i].Quiz.C
+                    </div>
+                    <div class="radio">
+                        @Html.RadioButtonFor(model => model.ListQuiz[i].SelectedAnswer, "D", new { @class = "flat" })
+                        @Model.ListQuiz[i].Quiz.D
+                    </div>
+                </fieldset>
+            }
+            </div>
+                <hr />
+                <button class="btn btn-success"><i class="fa fa-check"></i> Nộp bài</button>
+        }
+    </div>
+</div>
+
