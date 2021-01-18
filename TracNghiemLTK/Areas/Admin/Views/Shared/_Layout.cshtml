@@ -15,7 +15,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title | Đinh Công Tân!</title>
+    <title>@ViewBag.Title | @session.Username</title>
     <!-- Bootstrap -->
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="/Admin/Home" class="site_title"><i class="fa fa-paw"></i> <span>Admin Panel</span></a>
+                        <a href="/Admin/Home" class="site_title"><span>Admin Panel</span></a>
                     </div>
                     <div class="clearfix"></div>
                     <!-- menu profile quick info -->
@@ -92,41 +92,16 @@
                             <h3>Cài đặt</h3>
                             <ul class="nav side-menu">
                                 <li>
-                                    <a><i class="fa fa-bug"></i> Tài khoản <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-user"></i> Tài khoản <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="/Admin/Account">Quản lý tài khoản</a></li>
                                         <li><a href="projects.html">Quản lý quyền</a></li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a><i class="fa fa-windows"></i> Trợ giúp <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="/page_403.html">403 Error</a></li>
-                                        <li><a href="/page_404.html">404 Error</a></li>
-                                        <li><a href="/page_500.html">500 Error</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Thống kê <span class="label label-success pull-right">Sắp có</span></a></li>
                             </ul>
                         </div>
                     </div>
                     <!-- /sidebar menu -->
-                    <!-- /menu footer buttons -->
-                    <div class="sidebar-footer hidden-small">
-                        <a data-toggle="tooltip" data-placement="top" title="Settings">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Lock">
-                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                    <!-- /menu footer buttons -->
                 </div>
             </div>
             <!-- top navigation -->
@@ -149,7 +124,7 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                    Hệ thống trắc nghiệm THPT Lý Thường Kiệt - <a href="https://fb.me/tan.dct">Tân Đinh</a>
+                    Copyright © Exam 2021
                 </div>
                 <div class="clearfix"></div>
             </footer>

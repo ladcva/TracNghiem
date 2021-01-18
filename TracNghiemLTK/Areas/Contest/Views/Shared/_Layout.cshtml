@@ -15,7 +15,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title | Đinh Công Tân!</title>
+    <title>@ViewBag.Title | @session.HoTen</title>
     <!-- Bootstrap -->
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -52,7 +52,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="/Contest/Default" class="site_title"><i class="fa fa-paw"></i> <span>Trang chủ</span></a>
+                        <a href="/Contest/Default" class="site_title"><span>Trang chủ</span></a>
                     </div>
                     <div class="clearfix"></div>
                     <!-- menu profile quick info -->
@@ -91,41 +91,16 @@
                             <h3>Cài đặt</h3>
                             <ul class="nav side-menu">
                                 <li>
-                                    <a><i class="fa fa-bug"></i> Tài khoản <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-user"></i> Tài khoản <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="/Contest/Profile/Details/@session.MaThiSinh">Hồ sơ</a></li>
                                         <li><a href="/Contest/KetQua/Index/@session.MaThiSinh">Kết quả thi</a></li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a><i class="fa fa-windows"></i> Trợ giúp <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="/page_403.html">Hướng dẫn làm bài</a></li>
-                                        <li><a href="/page_404.html">Quy chế thi</a></li>
-                                        <li><a href="/page_500.html">Nội dung thi</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Thống kê <span class="label label-success pull-right">Sắp có</span></a></li>
                             </ul>
                         </div>
                     </div>
                     <!-- /sidebar menu -->
-                    <!-- /menu footer buttons -->
-                    <div class="sidebar-footer hidden-small">
-                        <a data-toggle="tooltip" data-placement="top" title="Settings">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Lock">
-                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                    <!-- /menu footer buttons -->
                 </div>
             </div>
             <!-- top navigation -->
@@ -148,78 +123,7 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                                     <li><a href="/Contest/Profile/Details/@session.MaThiSinh"> Hồ sơ</a></li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="badge bg-red pull-right">50%</span>
-                                            <span>Cài đặt</span>
-                                        </a>
-                                    </li>
-                                    <li><a href="javascript:;">Trợ giúp</a></li>
                                     <li>@Html.ActionLink("Đăng xuất", "Logout", "Default")</li>
-                                </ul>
-                            </li>
-                            <li role="presentation" class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <span class="badge bg-green">6</span>
-                                </a>
-                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="~/Content/images/img.jpg" alt="Profile Image" /></span>
-                                            <span>
-                                                <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie makers. They were where...
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="~/Content/images/img.jpg" alt="Profile Image" /></span>
-                                            <span>
-                                                <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie makers. They were where...
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="~/Content/images/img.jpg" alt="Profile Image" /></span>
-                                            <span>
-                                                <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie makers. They were where...
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="~/Content/images/img.jpg" alt="Profile Image" /></span>
-                                            <span>
-                                                <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie makers. They were where...
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="text-center">
-                                            <a>
-                                                <strong>See All Alerts</strong>
-                                                <i class="fa fa-angle-right"></i>
-                                            </a>
-                                        </div>
-                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -235,7 +139,7 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                    Hệ thống trắc nghiệm THPT Lý Thường Kiệt - <a href="https://fb.me/tan.dct">Tân Đinh</a>
+                    Copyright © Exam 2021
                 </div>
                 <div class="clearfix"></div>
             </footer>
