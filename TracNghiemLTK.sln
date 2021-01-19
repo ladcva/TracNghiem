@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracNghiemLTK", "TracNghiemLTK\TracNghiemLTK.csproj", "{3DB34462-C95C-4E07-A61B-B8A431075E37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracNghiem", "TracNghiemLTK\TracNghiem.csproj", "{3DB34462-C95C-4E07-A61B-B8A431075E37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLTK", "DataLTK\DataLTK.csproj", "{E89E1C64-5911-403B-9D81-D4B2822CCFC4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "DataLTK\Data.csproj", "{E89E1C64-5911-403B-9D81-D4B2822CCFC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12ED8D37-EF90-44C1-B980-FEB679A4D013}
 	EndGlobalSection
 EndGlobal

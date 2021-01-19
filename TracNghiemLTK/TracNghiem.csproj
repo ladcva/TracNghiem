@@ -3668,9 +3668,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="page_403.html" />
-    <Content Include="page_404.html" />
-    <Content Include="page_500.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -4620,9 +4617,9 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataLTK\DataLTK.csproj">
+    <ProjectReference Include="..\DataLTK\Data.csproj">
       <Project>{e89e1c64-5911-403b-9d81-d4b2822ccfc4}</Project>
-      <Name>DataLTK</Name>
+      <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
