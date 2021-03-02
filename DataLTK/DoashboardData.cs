@@ -9,35 +9,42 @@ namespace DataLTK
 	public class DoashboardData
 	{
 		TracNghiemEntities tn = null;
+		ThiSinh ts = null;
 		public DoashboardData()
 		{
 			tn = new TracNghiemEntities();
+			ts = new ThiSinh();
 		}
 		public int SoHocSinh()
 		{
-			var tan = tn.ThiSinhs.Count();
-			return tan;
+			var result = tn.ThiSinhs.Count();
+			return result;
 		}
 		public int SoLopHoc()
 		{
-			var tan = tn.Lops.Count();
-			return tan;
+			var result = tn.Lops.Count();
+			return result;
 		}
 		public int SoDeThi()
 		{
-			var tan = tn.DeThis.Count();
-			return tan;
+			var result = tn.DeThis.Count();
+			return result;
 		}
 		public int SoMonThi()
 		{
-			var tan = tn.MonThis.Count();
-			return tan;
+			var result = tn.MonThis.Count();
+			return result;
 		}
 		public int SoCauHoi()
 		{
-			var tan = tn.Quizs.Count();
-			return tan;
+			var result = tn.Quizs.Count();
+			return result;
 		}
+		public int SoHocSinhNam()
+        {
+			var result = tn.ThiSinhs.Where(x => x.GioiTinh == false).Count();
+			return result;
+        }
 		public List<DeThi> ListDeThi()
 		{
 			return tn.DeThis.ToList();

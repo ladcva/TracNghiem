@@ -18,7 +18,8 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
 			ViewBag.SoDeThi = db.SoDeThi();
 			ViewBag.SoMonThi = db.SoMonThi();
 			ViewBag.SoCauHoi = db.SoCauHoi();
-			ViewBag.ListDeThi = db.ListDeThi();
+            ViewBag.SoHocSinhNam = db.SoHocSinhNam();
+            ViewBag.ListDeThi = db.ListDeThi();
 			return View();
         }
 
