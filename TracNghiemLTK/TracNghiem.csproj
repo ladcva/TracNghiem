@@ -2130,13 +2130,17 @@
     <Content Include="Content\vendors\gauge.js\dist\gauge.min.js" />
     <Content Include="Content\vendors\gauge.js\favicon.ico" />
     <Content Include="Content\vendors\gauge.js\index.html" />
+    <Content Include="Content\vendors\google-code-prettify\.bower.json" />
     <Content Include="Content\vendors\google-code-prettify\bin\prettify.min.css" />
     <Content Include="Content\vendors\google-code-prettify\bin\prettify.min.js" />
     <Content Include="Content\vendors\google-code-prettify\bin\run_prettify.min.js" />
+    <Content Include="Content\vendors\google-code-prettify\bower.json" />
     <Content Include="Content\vendors\google-code-prettify\CHANGES.html" />
+    <Content Include="Content\vendors\google-code-prettify\COPYING" />
     <Content Include="Content\vendors\google-code-prettify\examples\quine.html" />
     <Content Include="Content\vendors\google-code-prettify\README-zh-Hans.html" />
     <Content Include="Content\vendors\google-code-prettify\README.html" />
+    <Content Include="Content\vendors\google-code-prettify\README.md" />
     <Content Include="Content\vendors\google-code-prettify\src\lang-apollo.js" />
     <Content Include="Content\vendors\google-code-prettify\src\lang-basic.js" />
     <Content Include="Content\vendors\google-code-prettify\src\lang-clj.js" />
@@ -4123,10 +4127,6 @@
     <Content Include="Content\vendors\gauge.js\bower.json" />
     <Content Include="Content\vendors\gauge.js\dist\gauge.coffee" />
     <Content Include="Content\vendors\gauge.js\README.md" />
-    <Content Include="Content\vendors\google-code-prettify\.bower.json" />
-    <Content Include="Content\vendors\google-code-prettify\bower.json" />
-    <Content Include="Content\vendors\google-code-prettify\COPYING" />
-    <Content Include="Content\vendors\google-code-prettify\README.md" />
     <Content Include="Content\vendors\iCheck\.bower.json" />
     <Content Include="Content\vendors\iCheck\bower.json" />
     <Content Include="Content\vendors\iCheck\icheck.jquery.json" />
@@ -4592,7 +4592,9 @@
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Properties\PublishProfiles\is-exam - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\is-exam - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\is-exam-dev - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TracNghiem20210304123103 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\TracNghiem20210304123103 - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -4630,7 +4632,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Areas\Contest\Views\BaseContest\" />
-    <Folder Include="Content\audio\" />
+    <Folder Include="Content\images\audio\" />
     <Folder Include="Content\images\student\" />
   </ItemGroup>
   <ItemGroup>
