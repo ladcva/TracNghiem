@@ -33,5 +33,5 @@ jobs:
       with:
         app-name: 'is-exam'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_72203981d24748348c32b1407518701e }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_31f5bcbbef0b4b1cb4ef267227732a3b }}
         package: \published\
