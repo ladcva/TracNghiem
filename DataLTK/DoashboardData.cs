@@ -45,6 +45,12 @@ namespace DataLTK
 			var result = tn.ThiSinhs.Where(x => x.GioiTinh == false).Count();
 			return result;
         }
+		public double DiemTrungBinh()
+        {
+			var result = tn.KetQuas.Average(x => x.Diem);
+			result = Math.Round(result, 2);
+			return result;
+        }
 		public List<DeThi> ListDeThi()
 		{
 			return tn.DeThis.ToList();

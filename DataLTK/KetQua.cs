@@ -20,7 +20,7 @@ namespace DataLTK
 		[Display(Name = "Ngày thi")]
 		public Nullable<System.DateTime> NgayThi { get; set; }
 		[Display(Name = "Điểm")]
-		public Nullable<double> Diem { get; set; }
+		public double Diem { get; set; }
 		[Display(Name = "Mã đề")]
 		public Nullable<int> MaDe { get; set; }
     

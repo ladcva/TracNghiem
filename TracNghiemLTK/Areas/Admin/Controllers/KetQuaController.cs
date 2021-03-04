@@ -74,8 +74,8 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
         }
 
         // POST: Admin/KetQua/Delete/5
-        [HttpDelete]
-        public ActionResult Delete(int id, FormCollection collection)
+        // [HttpDelete]
+        /*public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
@@ -88,6 +88,6 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
             {
                 return View();
             }
-        }
+        }*/
     }
 }

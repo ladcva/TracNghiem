@@ -67,14 +67,14 @@
                     <td>
                         @item.Diem
                     </td>
-                            <td>
+                            @*<td>
                                 @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaKetQua }, new AjaxOptions
                            {
                                Confirm = "Xác nhận xóa!",
                                OnComplete = "$('#row_" + item.MaKetQua + "').remove()",
                                HttpMethod = "Delete"
                            }, new { @class = "btn btn-danger btn-xs" })
-                            </td>
+                            </td>*@
                         </tr>}
 
                 </tbody>

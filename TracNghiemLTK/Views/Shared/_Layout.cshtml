@@ -1,24 +1,30 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>@ViewBag.Title</title>
     <!-- Bootstrap -->
-    <link href="/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="@Url.Content("/Content/vendors/bootstrap/dist/css/bootstrap.min.css")" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="/Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="@Url.Content("/Content/vendors/font-awesome/css/font-awesome.min.css")" rel="stylesheet">
     <!-- NProgress -->
-    <link href="/Content/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="@Url.Content("/Content/vendors/nprogress/nprogress.css")" rel="stylesheet">
     <!-- Animate.css -->
-    <link href="/Content/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="@Url.Content("/Content/vendors/animate.css/animate.min.css")" rel="stylesheet">
     <!-- Custom Theme Style -->
-    <link href="/Content/build/css/custom.min.css" rel="stylesheet">
+    <link href="@Url.Content("/Content/build/css/custom.min.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("/Content/build/css/iofrm-style.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("/Content/build/iofrm-theme10.css")" rel="stylesheet" type="text/css">
 </head>
-<body class="login">
+<body>
     @RenderBody()
+    
+    <script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/popper.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
 </body>
 </html>

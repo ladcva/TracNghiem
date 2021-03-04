@@ -33,11 +33,11 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Mã đề</th>
-                    <th>Mô tả</th>
-                    <th>Môn thi</th>
-                    <th>Trạng thái</th>
-                    <th>Tác vụ</th>
+                    <th>Exam code</th>
+                    <th>Description</th>
+                    <th>Subjects</th>
+                    <th>Status</th>
+                    <th>Tasks</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,19 +49,20 @@
                         <td>@item.MonThi.TenMon</td>
                         <td>
                             @if (item.Status == true)
-                        {
-                            <a class="btn btn-success btn-xs">Đang mở</a>}
-                        else
-                        {
-                            <a class="btn btn-warning btn-xs">Đã đóng</a>
-}
+                            {
+                            <a class="btn btn-success btn-xs">Ongoing</a>
+                            }
+                            else
+                            {
+                            <a class="btn btn-danger btn-xs">Closed</a>
+                            }
                     </td>
                     <td>
-                        <a href="/Admin/DeThi/Details/@item.MaDe" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Chi tiết </a>
-                        <a href="/Admin/DeThi/Edit/@item.MaDe" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Sửa </a>
+                        <a href="/Admin/DeThi/Details/@item.MaDe" class="btn btn-primary btn-xs"><i class="fa fa-info-circle"></i> Details </a>
+                        <a href="/Admin/DeThi/Edit/@item.MaDe" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
                         @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaDe }, new AjaxOptions
                     {
-                        Confirm = "Xác nhận xóa!",
+                        Confirm = "Are you sure ?",
                         OnComplete = "$('#row_" + item.MaDe + "').remove()",
                         HttpMethod = "Delete"
                     }, new { @class = "btn btn-danger btn-xs" })

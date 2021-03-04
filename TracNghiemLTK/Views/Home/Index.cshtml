@@ -1,69 +1,33 @@
 ﻿@model TracNghiemLTK.Models.LoginModel
-    <div>
-        <a class="hiddenanchor" id="signup"></a>
-        <a class="hiddenanchor" id="signin"></a>
-        <div class="login_wrapper">
-            <div class="animate form login_form">
-                <section class="login_content">
-                    @using (Html.BeginForm())
-                    {
-                        <h1>Đăng nhập</h1>
-                        @Html.ValidationSummary(false, "", "alert alert-danger")
-                        <div>
-                            @Html.TextBoxFor(model=>model.Username, new { @type = "text", @class="form-control", @placeholder="Mã sinh viên", @required=""})
-                        </div>
-                        <div>
-                            @Html.TextBoxFor(model=>model.Password, new { @type = "password", @class="form-control", @placeholder="Mật khẩu", @required=""})
-                        </div>
-                        <div>      
-                            <button class="btn btn-default submit">Đăng nhập</button>        
-                            <a class="reset_pass" href="/Home/MaSinhVien">Quên mã sinh viên?</a>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="separator">
-                            <p class="change_link">
-                                Không thể đăng nhập?
-                                <a href="#signup" class="to_register"> báo lỗi </a>
-                            </p>
-                            <div class="clearfix"></div>
-                            <br />
-                            <div>
-                                <p>Copyright © Exam 2021</p>
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <div class="website-logo-inside">
+                        <a href="index.html">
+                            <div class="logo">
+                                <img class="logo-size" src="images/logo-light.svg" alt="">
                             </div>
-                        </div>
-                    }
-                </section> 
-            </div>
-            <div id="register" class="animate form registration_form">
-                <section class="login_content">
+                        </a>
+                    </div>
+                    <h3>Get more things done with Loggin platform.</h3>
+                    <p>Access to the most powerfull tool in the entire design and web industry.</p>
+                    <div class="page-links">
+                        <a href="login10.html" class="active">Login</a><a href="register10.html">Register</a>
+                    </div>
                     <form>
-                        <h1>Báo lỗi</h1>
-                        <div>
-                            <input type="text" class="form-control" placeholder="Tài khoản" required="" />
-                        </div>
-                        <div>
-                            <input type="email" class="form-control" placeholder="Email" required="" />
-                        </div>
-                        <div>
-                            <input type="text" class="form-control" placeholder="Nội dung" required="" />
-                        </div>
-                        <div>
-                            <a class="btn btn-default submit" href="index.html">Nộp đơn</a>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="separator">
-                            <p class="change_link">
-                                Hủy báo lỗi ?
-                                <a href="#signin" class="to_register"> Đăng nhập </a>
-                            </p>
-                            <div class="clearfix"></div>
-                            <br />
-                            <div>
-                                <p>Copyright © Exam 2021</p>
-                            </div>
+                        <input class="form-control" type="text" name="username" placeholder="E-mail Address" required>
+                        <input class="form-control" type="password" name="password" placeholder="Password" required>
+                        <div class="form-button">
+                            <button id="submit" formmethod="post" type="submit" class="ibtn">Login</button>
                         </div>
                     </form>
-                </section>
+                    <div class="other-links">
+                        <span>Or login with</span><a href="#">Facebook</a><a href="#">Google</a><a href="#">Linkedin</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
