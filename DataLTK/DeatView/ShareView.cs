@@ -8,10 +8,10 @@ namespace DataLTK.DeatView
 {
 	public class ShareView
 	{
-		TracNghiemEntities tn = null;
+		Multi_Choice_Entities tn = null;
 		public ShareView()
 		{
-			tn = new Multi_ChoiceEntities();
+			tn = new Multi_Choice_Entities();
 		}
 		public List<Account> Username(string Username)
 		{
