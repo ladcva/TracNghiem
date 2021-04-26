@@ -15,7 +15,7 @@ namespace DataLTK.DeatView
 		}
 		public List<Account> Username(string Username)
 		{
-			var res = tn.Account.Where(x => x.Username == Username).ToList();
+			var res = tn.Accounts.Where(x => x.Username == Username).ToList();
 			return res;
 		}
 	}
