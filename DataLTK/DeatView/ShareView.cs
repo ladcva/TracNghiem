@@ -11,11 +11,11 @@ namespace DataLTK.DeatView
 		TracNghiemEntities tn = null;
 		public ShareView()
 		{
-			tn = new TracNghiemEntities();
+			tn = new Multi_ChoiceEntities();
 		}
-		public List<TaiKhoan> TenTaiKhoan(string Username)
+		public List<Account> Username(string Username)
 		{
-			var res = tn.TaiKhoans.Where(x => x.Username == Username).ToList();
+			var res = tn.Account.Where(x => x.Username == Username).ToList();
 			return res;
 		}
 	}
