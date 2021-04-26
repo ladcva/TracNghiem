@@ -8,25 +8,25 @@ namespace DataLTK
 {
 	public class AccountData
 	{
-		TracNghiemEntities tn = null;
+		Multi_Choice_Entities tn = null;
 		public AccountData()
 		{
-			tn = new TracNghiemEntities();
+			tn = new Multi_Choice_Entities();
 		}
-		public List<TaiKhoan> ListTaiKhoan()
+		public List<Account> ListAccount()
 		{
-			var tan = tn.TaiKhoans.ToList();
+			var tan = tn.Accounts.ToList();
 			return tan;
 		}
-		public int Insert(TaiKhoan entity)
+		public int Insert(Account entity)
 		{
-			tn.TaiKhoans.Add(entity);
+			tn.Accounts.Add(entity);
 			tn.SaveChanges();
 			return entity.id;
 		}
-		public bool Update(TaiKhoan entity)
+		public bool Update(Account entity)
 		{
-			var tan = tn.TaiKhoans.Find(entity.id);
+			var tan = tn.Accounts.Find(entity.id);
 			tan.Username = entity.Username;
 			tan.Password = entity.Password;
 			tn.SaveChanges();
@@ -34,8 +34,8 @@ namespace DataLTK
 		}
 		public bool Delete(int id)
 		{
-			var tan = tn.TaiKhoans.Find(id);
-			tn.TaiKhoans.Remove(tan);
+			var tan = tn.Accounts.Find(id);
+			tn.Accounts.Remove(tan);
 			tn.SaveChanges();
 			return true;
 		}
