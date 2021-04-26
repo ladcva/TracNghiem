@@ -23,22 +23,22 @@ namespace DataLTK
         }
     
         public int MaDe { get; set; }
-		[Display(Name = "Mô tả")]
+		[Display(Name = "Describe")]
 		public string MoTa { get; set; }
         public Nullable<int> MaMon { get; set; }
-		[Display(Name = "Loại đề")]
+		[Display(Name = "Kind of question")]
 		public string LoaiDe { get; set; }
-		[Display(Name = "Ngày tạo")]
+		[Display(Name = "Made Day")]
 		public Nullable<System.DateTime> CreateDate { get; set; }
-		[Display(Name = "Người ra đề")]
+		[Display(Name = "Examiner")]
 		public Nullable<int> CreateBy { get; set; }
-		[Display(Name = "Câu hỏi tối đa")]
+		[Display(Name = "Maximum Question")]
 		public Nullable<int> MaxQuiz { get; set; }
-		[Display(Name = "Trạng thái")]
+		[Display(Name = "State")]
 		public Nullable<bool> Status { get; set; }
-		[Display(Name = "Thời gian")]
+		[Display(Name = "Time")]
 		public Nullable<int> Time { get; set; }
-		[Display(Name = "Âm thanh")]
+		[Display(Name = "Sound")]
 		public string Audio { get; set; }
 		[Display(Name = "Mật khẩu")]
 		public string Password { get; set; }
