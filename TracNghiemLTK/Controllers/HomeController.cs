@@ -34,7 +34,7 @@ namespace TracNghiemLTK.Controllers
 			}
 			else
 			{
-				ModelState.AddModelError("", "Đăng nhập không thành công!");
+				ModelState.AddModelError("", "Login failed!");
 			}
 			return View(lg);
 		}
