@@ -28,7 +28,7 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
 		public void SetViewBagDD(int? selectedID = null)
 		{
 			var mt = new RoleData();
-			ViewBag.MaQuyen = new SelectList(mt.ListRole(), "MaQuyen", "Ten", selectedID);
+			ViewBag.MaQuyen = new SelectList(mt.ListRole(), "ID_Book", "Name", selectedID);
 		}
 		// GET: Admin/Account/Create
 		public ActionResult Create()
@@ -80,7 +80,7 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
 				}
 				else
 				{
-					ModelState.AddModelError("", "Sửa thất bại");
+					ModelState.AddModelError("", "Fixed Failure ");
 				}
                 return RedirectToAction("Index");
             }
@@ -112,7 +112,7 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
 				}
 				else
 				{
-					ModelState.AddModelError("", "Xóa thất bại");
+					ModelState.AddModelError("", "Deleted Failure");
 				}
 				return RedirectToAction("Index");
             }
