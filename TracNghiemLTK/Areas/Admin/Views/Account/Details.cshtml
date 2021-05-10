@@ -1,14 +1,14 @@
 ﻿@model DataLTK.TaiKhoan
 
 @{
-    ViewBag.Title = "Hồ sơ của tôi";
+    ViewBag.Title = "My Profile";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Hồ sơ</h3>
+            <h3>Profile</h3>
         </div>
         <div class="title_right">
             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
@@ -27,7 +27,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Hồ sơ <small>Xem chi tiết</small></h2>
+                    <h2>Profile <small>Detail</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li>
                             <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -65,38 +65,38 @@
                         <h3>@Html.DisplayName(Model.HoTen)</h3>
                         <ul class="list-unstyled user_data">
                             <li>
-                                <i class="fa fa-map-marker user-profile-icon"></i> Địa chỉ: @Html.DisplayName(Model.DiaChi)
+                                <i class="fa fa-map-marker user-profile-icon"></i> Address: @Html.DisplayName(Model.DiaChi)
                             </li>
                             <li class="m-top-xs">
                                 <i class="fa fa-genderless user-profile-icon"></i>
-                                Giới tính: @Html.Encode(Model.GioiTinh == true ? "Nam" : "Nữ")
+                                Giới tính: @Html.Encode(Model.GioiTinh == true ? "Male" : "Female")
                             </li>
                         </ul>
-                        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.id }, new { @class="btn btn-success" })
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.id }, new { @class="btn btn-success" })
                         <br />
                         <!-- start skills -->
-                        <h4>Kỹ năng</h4>
+                        <h4>Skills</h4>
                         <ul class="list-unstyled user_data">
                             <li>
-                                <p>Toán</p>
+                                <p>Mathematic</p>
                                 <div class="progress progress_sm">
                                     <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                                 </div>
                             </li>
                             <li>
-                                <p>Ngoại ngữ</p>
+                                <p>Foreign Language</p>
                                 <div class="progress progress_sm">
                                     <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
                                 </div>
                             </li>
                             <li>
-                                <p>Ngữ văn</p>
+                                <p>Literature</p>
                                 <div class="progress progress_sm">
                                     <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
                                 </div>
                             </li>
                             <li>
-                                <p>Hóa học</p>
+                                <p>Chemistry</p>
                                 <div class="progress progress_sm">
                                     <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                                 </div>
@@ -107,7 +107,7 @@
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <div class="profile_title">
                             <div class="col-md-6">
-                                <h2>Báo cáo hoạt động</h2>
+                                <h2>Activities Report</h2>
                             </div>
                             <div class="col-md-6">
                                 <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
@@ -122,13 +122,13 @@
                         <div class="" role="tabpanel" data-example-id="togglable-tabs">
                             <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                 <li role="presentation" class="active">
-                                    <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Hoạt động gần đây</a>
+                                    <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activities</a>
                                 </li>
                                 <li role="presentation" class="">
-                                    <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Kết quả học tập</a>
+                                    <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Grades</a>
                                 </li>
                                 <li role="presentation" class="">
-                                    <a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Giới thiệu</a>
+                                    <a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Introduction</a>
                                 </li>
                             </ul>
                             <div id="myTabContent" class="tab-content">
