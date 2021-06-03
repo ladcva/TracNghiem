@@ -8,13 +8,13 @@ namespace DataLTK.DeatView
 {
 	public class ThiSinhView
 	{
-		public int id_stu { get; set; }
-		public string name_stu { get; set; }
-		public bool? gender_stu { get; set; }
-		public DateTime? dob_stu { get; set; }
-		public string address_stu { get; set; }
-		public int id_class { get; set; }
-		public string name_class { get; set; }
-		public string apart { get; set; }
+		public int MaThiSinh { get; set; }
+		public string HoTen { get; set; }
+		public bool? GioiTinh { get; set; }
+		public DateTime? NgaySinh { get; set; }
+		public string DiaChi { get; set; }
+		public int MaLop { get; set; }
+		public string TenLop { get; set; }
+		public string Khoi { get; set; }
 	}
 }
