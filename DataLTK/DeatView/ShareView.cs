@@ -8,14 +8,14 @@ namespace DataLTK.DeatView
 {
 	public class ShareView
 	{
-		Multi_Choice_Entities tn = null;
+		TracNghiemEntities tn = null;
 		public ShareView()
 		{
-			tn = new Multi_Choice_Entities();
+			tn = new TracNghiemEntities();
 		}
-		public List<Account> Username(string Username)
+		public List<TaiKhoan> TenTaiKhoan(string Username)
 		{
-			var res = tn.Accounts.Where(x => x.Username == Username).ToList();
+			var res = tn.TaiKhoans.Where(x => x.Username == Username).ToList();
 			return res;
 		}
 	}
