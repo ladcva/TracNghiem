@@ -49,28 +49,28 @@
                             <td class=" ">@item.MaDe</td>
                             <td class=" ">@item.MonThi.TenMon </td>
                             <td class=" ">
-                                @if(item.Status == true && item.)
+                                <!--will add logic to process showing done exams -->
+                                @if (item.Status == true)
                                 {
                                     <span class="btn btn-success btn-xs">Ongoing</span>
-}
+                                }
                                 else
                                 {
                                     <span class="btn btn-danger btn-xs">Closed</span>
-}
+                                }
                             </td>
                             <td class=" last">
                                 @if (item.Status == true)
                                 {
                                     @Html.ActionLink("Enter Exam", "EnterContest", new { id = item.MaDe }, new { @class = "text-success" })
-}
+                                }
                                 else
                                 {
                                     <span class="text-danger"></span>
-}
-                               
+                                }
                             </td>
-                        </tr>}
-                    
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
