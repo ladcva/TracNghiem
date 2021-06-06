@@ -151,7 +151,7 @@
 }
 
 .form-content input:hover, .form-content input:focus, .form-content .dropdown-toggle.btn-default:hover, .form-content .dropdown-toggle.btn-default:focus {
-    border: 1px solid #0093FF;
+    border: 1px solid #2A3F54;
     background-color: #fff;
     color: #000000;
 }
@@ -163,7 +163,7 @@
 }
 
 .form-content textarea:hover, .form-content textarea:focus {
-    border: 1px solid #0093FF;
+    border: 1px solid #2A3F54;
     background-color: #fff;
     color: #000000;
 }
@@ -207,7 +207,7 @@
 }
 
 .form-content .form-button .ibtn {
-    background-color: #0093FF;
+    background-color: #2A3F54;
     color: #fff;
     -webkit-box-shadow: 0 0 0 rgba(80, 182, 255, 0.31);
     box-shadow: 0 0 0 rgba(80, 182, 255, 0.31);
