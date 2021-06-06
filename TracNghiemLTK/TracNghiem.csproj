@@ -4589,6 +4589,7 @@
     <Content Include="Areas\Contest\Views\Profile\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DeThi\View.cshtml" />
+    <None Include="Properties\PublishProfiles\ExamFinal2021 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Properties\PublishProfiles\is-exam - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\is-exam - Web Deploy1.pubxml" />
