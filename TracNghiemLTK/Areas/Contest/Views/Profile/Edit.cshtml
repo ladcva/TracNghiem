@@ -1,7 +1,7 @@
 ﻿@model DataLTK.ThiSinh
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Profile";
     Layout = "~/Areas/Contest/Views/Shared/_Layout.cshtml";
 }
 <script type="text/javascript">
@@ -19,7 +19,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Hồ sơ <small>Sửa thông tin</small></h2>
+            <h2>Profile</h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li>
                     <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -64,7 +64,7 @@
                            {
                                new SelectListItem{ Text = "Nam", Value = "True"},
                                new SelectListItem{ Text = "Nữ", Value = "False"}
-                           }, "Chọn giới tính", new { @class = "form-control" })
+                           }, "Select gender", new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                         @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
+                <!--
                 <div class="form-group">
                     @Html.LabelFor(model => model.MaLop, "Lớp", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -100,7 +100,7 @@
                         @Html.ValidationMessageFor(model => model.MaLop, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
+                -->
                 <div class="form-group">
                     @Html.LabelFor(model => model.NienKhoa, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -136,14 +136,14 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Lưu" class="btn btn-default" />
+                        <input type="submit" value="Save" class="btn btn-default" />
                     </div>
                 </div>
             </div>
         }
 
         <div>
-            <a href="/Contest/Profile/Details/@Url.RequestContext.RouteData.Values["id"]">Quay lại</a>
+            <a href="/Contest/Profile/Details/@Url.RequestContext.RouteData.Values["id"]"><< Back</a>
         </div>
 </div>
 </div>

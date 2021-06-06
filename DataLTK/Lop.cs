@@ -22,11 +22,11 @@ namespace DataLTK
         }
     
         public int MaLop { get; set; }
-		[Display(Name = "Tên lớp")]
+		[Display(Name = "Class name")]
 		public string TenLop { get; set; }
-		[Display(Name = "Khối")]
+		[Display(Name = "Grade")]
 		public string Khoi { get; set; }
-		[Display(Name = "Sĩ số")]
+		[Display(Name = "Total students")]
 		public Nullable<int> SiSo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -6,7 +6,7 @@
 @model List<DataLTK.DeatView.ThiSinhView>
 <div class="x_panel">
     <div class="x_title">
-        <h2>Thí sinh <small>Danh sách</small></h2>
+        <h2>Student List</h2>
         <ul class="nav navbar-right panel_toolbox">
             <li>
                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -32,14 +32,14 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Mã thí sinh</th>
-                    <th>Tên thí sinh</th>
-                    <th>Giới tính</th>
-                    <th>Ngày sinh</th>
-                    <th>Địa chỉ</th>
-                    <th>Tên lớp</th>
-                    <th>Khối</th>
-                    <th>Tác vụ</th>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Address</th>
+                    <th>Class</th>
+                    <th>Grade</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,22 +50,22 @@
                         <td>@item.HoTen</td>
                         @if(item.GioiTinh == true)
                         {
-                            <td>Nam</td>
+                            <td>Male</td>
                         }
                         else
                         {
-                            <td>Nữ</td>
+                            <td>Female</td>
                         }
-                        <td>@(item.NgaySinh.HasValue? item.NgaySinh.Value.ToString("dd/MM/yyyy"): "Chưa rõ")</td>
+                        <td>@(item.NgaySinh.HasValue? item.NgaySinh.Value.ToString("dd/MM/yyyy"): "Unknown")</td>
                         <td>@item.DiaChi</td>
                         <td>@item.TenLop</td>
                         <td>@item.Khoi</td>
                 <td>
-                    @Html.ActionLink("Chi tiết", "Details", new { id = item.MaThiSinh }, new { @class = "btn btn-primary btn-xs" })
-                    @Html.ActionLink("Sửa","Edit", new { id = item.MaThiSinh}, new { @class = "btn btn-info btn-xs" })
-                    @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaThiSinh }, new AjaxOptions
+                    @Html.ActionLink("Details", "Details", new { id = item.MaThiSinh }, new { @class = "btn btn-primary btn-xs" })
+                    @Html.ActionLink("Edit","Edit", new { id = item.MaThiSinh}, new { @class = "btn btn-info btn-xs" })
+                    @Ajax.ActionLink("Delete", "Delete", new { @id = item.MaThiSinh }, new AjaxOptions
                {
-                   Confirm = "Xác nhận xóa!",
+                   Confirm = "Confirm Delete ?",
                    OnComplete = "$('#row_" + item.MaThiSinh + "').remove()",
                    HttpMethod = "Delete"
                }, new { @class = "btn btn-danger btn-xs" })
@@ -74,7 +74,7 @@
                 }
                 <tr>
                     <td>
-                        <a href="/Admin/ThiSinh/Create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Thêm mới</a>
+                        <a href="/Admin/ThiSinh/Create" class="btn btn-success"><i class="fa fa-plus-circle"></i> New student</a>
                     </td>
                 </tr>
             </tbody>

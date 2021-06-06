@@ -27,6 +27,7 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
 				var managerSession = new ManagerInfo();
 				managerSession.Username = manager.Username;
 				managerSession.id = manager.id;
+				managerSession.Name = manager.HoTen;
 				Session.Add(Common.CommonConstantsManager.MANAGER_SESSION, managerSession);
 				return RedirectToAction("Index", "Home", new { area = "Admin" });
 			}

@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Danh sách câu hỏi";
+    ViewBag.Title = "Question Bank";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 @model PagedList.IPagedList<DataLTK.Quiz>
@@ -9,7 +9,7 @@
 <div class="title_right">
     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Nhập từ khóa...">
+            <input type="text" class="form-control" placeholder="Search...">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button">Go!</button>
             </span>
@@ -20,7 +20,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Câu hỏi <small>Danh sách câu hỏi</small></h2>
+            <h2>Question Bank</small></h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li>
                     <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -42,15 +42,15 @@
             </ul>
             <div class="clearfix"></div>
         </div>
-        <p>Note: <code><i class="fa fa-image"></i></code> câu hỏi có kèm hình ảnh</p>
+        <p>Note : <code><i class="fa fa-image"></i></code> Quizzes contains image</p>
         <div class="x_content">
             <table class="table table-hover table-responsive">
                 <thead>
                     <tr>
-                        <th>Mã Câu hỏi</th>
-                        <th>Nội Dung</th>
-                        <th>Môn thi</th>
-                        <th>Tác vụ</th>
+                        <th>ID</th>
+                        <th>Question</th>
+                        <th>Subject</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,10 +72,10 @@
                             @item.CauHoi</td>
                             <td>@item.MonThi.TenMon</td>
                             <td>
-                                <a href="/Admin/Quiz/Edit/@item.MaCauHoi" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Sửa </a>
-                                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaCauHoi }, new AjaxOptions
+                                <a href="/Admin/Quiz/Edit/@item.MaCauHoi" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                                @Ajax.ActionLink("Delete", "Delete", new { @id = item.MaCauHoi }, new AjaxOptions
                            {
-                               Confirm = "Xác nhận xóa!",
+                               Confirm = "Confirm Delete ?",
                                OnComplete = "$('#row_" + item.MaCauHoi + "').remove()",
                                HttpMethod = "Delete"
                            }, new { @class = "btn btn-danger btn-xs" })
@@ -85,7 +85,7 @@
                 </tbody>
             </table>
             @Html.PagedListPager(Model,page => Url.Action("Index", new { page }))
-            <a href="/Admin/Quiz/Create" class="btn btn-success"><i class="fa fa-plus"></i> Thêm mới</a>
+            <a href="/Admin/Quiz/Create" class="btn btn-success"><i class="fa fa-plus"></i> Create</a>
         </div>
     </div>
 </div>

@@ -66,14 +66,14 @@
                             <h3>@Model.Select(x => x.HoTen).FirstOrDefault()</h3>
                             <ul class="list-unstyled user_data">
                                 <li>
-                                    <i class="fa fa-map-marker user-profile-icon"></i> Địa chỉ: @Model.Select(x=>x.DiaChi).FirstOrDefault()
+                                    <i class="fa fa-map-marker user-profile-icon"></i> Address : @Model.Select(x=>x.DiaChi).FirstOrDefault()
                                 </li>
                                 <li>
-                                    <i class="fa fa-briefcase user-profile-icon"></i> Lớp: @Model.Select(x => x.Lop.TenLop).FirstOrDefault()
+                                    <i class="fa fa-briefcase user-profile-icon"></i> Class : @Model.Select(x => x.Lop.TenLop).FirstOrDefault()
                                 </li>
                                 <li class="m-top-xs">
                                     <i class="fa fa-external-link user-profile-icon"></i>
-                                    Giới tính: @(Model.Select(x => x.GioiTinh).FirstOrDefault() == true?"Nam":"Nữ")
+                                    Gender : @(Model.Select(x => x.GioiTinh).FirstOrDefault() == true?"Nam":"Nữ")
                                 </li>
                             </ul>
                             <a class="btn btn-success" href="/Contest/Profile/Edit/@Url.RequestContext.RouteData.Values["id"]"><i class="fa fa-edit m-right-xs"></i>Sửa hồ sơ</a>
@@ -94,10 +94,10 @@
                             <div class="" role="tabpanel" data-example-id="togglable-tabs">
                                 <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                     <li role="presentation" class="active">
-                                        <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Kết quả học tập</a>
+                                        <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Academic result</a>
                                     </li>
                                     <li role="presentation" class="">
-                                        <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Giới thiệu bản thân</a>
+                                        <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">My biography</a>
                                     </li>
                                 </ul>
                                 <div id="myTabContent" class="tab-content">
@@ -107,10 +107,11 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Mã đề</th>
-                                                    <th>Môn thi</th>
-                                                    <th class="hidden-phone">Ngày thi</th>
-                                                    <th>Thành tích</th>
+                                                    <th>Code</th>
+                                                    <th>Subject</th>
+                                                    <th class="hidden-phone">Date</th>
+                                                    <th>Score</th>
+                                                    <th>Progress bar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -121,6 +122,7 @@
                                                         <td>@item.MaDe</td>
                                                         <td>@item.DeThi.MonThi.TenMon</td>
                                                         <td class="hidden-phone">@(item.NgayThi.HasValue?item.NgayThi.Value.ToString("dd/MM/yyyy"): "Không có dữ liệu")</td>
+                                                        <td>@item.Diem / 100</td>
                                                         <td class="vertical-align-mid">
                                                             <div class="progress">
                                                                 <div class="progress-bar progress-bar-success" data-transitiongoal="@item.Diem"></div>

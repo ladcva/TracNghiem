@@ -10,7 +10,7 @@
 <div class="title_right">
     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Nhập từ khóa...">
+            <input type="text" class="form-control" placeholder="Search...">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button">Go!</button>
             </span>
@@ -21,7 +21,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Danh sách kết quả</h2>
+            <h2>All Submissions</h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li>
                     <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -47,35 +47,45 @@
             <table class="table table-hover table-responsive">
                 <thead>
                     <tr>
-                        <th>Mã Kết quả</th>
-                        <th>Mã đề</th>
-                        <th>Thí sinh</th>
-                        <th>Điểm</th>
+                        <th>Result Code</th>
+                        <th>Exam Code</th>
+                        <th>Class</th>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Score</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr id="row_@item.MaKetQua">
-                            <td>
-                                @item.MaKetQua
-                            </td>
-                            <td>
-                                @item.MaDe
-                            </td>
-                            <td>@item.ThiSinh.HoTen</td>
-                    <td>
-                        @item.Diem
-                    </td>
-                            @*<td>
-                                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaKetQua }, new AjaxOptions
-                           {
-                               Confirm = "Xác nhận xóa!",
-                               OnComplete = "$('#row_" + item.MaKetQua + "').remove()",
-                               HttpMethod = "Delete"
-                           }, new { @class = "btn btn-danger btn-xs" })
-                            </td>*@
-                        </tr>}
+                    <tr id="row_@item.MaKetQua">
+                        <td>
+                            @item.MaKetQua
+                        </td>
+                        <td>
+                            @item.MaDe
+                        </td>
+                        <td>
+                            @item.ThiSinh.Lop.TenLop
+                        </td>
+                        <td>
+                            @item.ThiSinh.MaThiSinh
+                        </td>
+                        <td>@item.ThiSinh.HoTen</td>
+                        <td>@item.NgayThi.Day/@item.NgayThi.Month/@item.NgayThi.Year</td>
+                        <td>
+                            @item.Diem / 100
+                        </td>
+                        @*<td>
+             @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaKetQua }, new AjaxOptions
+        {
+            Confirm = "Xác nhận xóa!",
+            OnComplete = "$('#row_" + item.MaKetQua + "').remove()",
+            HttpMethod = "Delete"
+        }, new { @class = "btn btn-danger btn-xs" })
+         </td>*@
+                    </tr>}
 
                 </tbody>
             </table>

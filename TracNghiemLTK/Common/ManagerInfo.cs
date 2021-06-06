@@ -9,6 +9,7 @@ namespace TracNghiemLTK.Common
 	public class ManagerInfo
 	{
 		public string Username { get; set; }
+		public string Name { get; set; }
 		public int id { get; set; }
 	}
 }

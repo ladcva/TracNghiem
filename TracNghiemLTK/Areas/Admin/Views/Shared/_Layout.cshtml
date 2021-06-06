@@ -15,7 +15,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title | @session.Username</title>
+    <title>@ViewBag.Title | @session.Name</title>
     <!-- Bootstrap -->
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -52,8 +52,8 @@
                             <img src="~/Content/images/img.jpg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
-                            <span>Xin chào,</span>
-                            <h2>@session.Username</h2>
+                            <span>Hello,</span>
+                            <h2>@session.Name</h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -61,41 +61,43 @@
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
-                            <h3>Quản lý</h3>
+                            <h3>Menu</h3>
                             <ul class="nav side-menu">
                                 <li>
                                     <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="/Admin/Home">Thống kê</a></li>
-                                        <li><a href="/Contest/Default">Giao diện thi</a></li>
+                                        <li><a href="/Admin/Home">Statistics</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-edit"></i> Người dùng <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-edit"></i> Manage <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="/Admin/Lop">Quản lý Lớp</a></li>
-                                        <li><a href="/Admin/ThiSinh">Thí sinh tham gia</a></li>
+                                        <li><a href="/Admin/Lop">Manage Classes</a></li>
+                                        <li><a href="/Admin/ThiSinh">Manage Students</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-desktop"></i> Kỳ thi <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-desktop"></i> Examination <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="/Admin/Quiz">Câu hỏi</a></li>
-                                        <li><a href="/Admin/DeThi">Đề bài</a></li>
-                                        <li><a href="/Admin/MonThi">Môn thi</a></li>
+                                        <li><a href="/Admin/Quiz">Questions</a></li>
+                                        <li><a href="/Admin/DeThi">Exam</a></li>
+                                        <li><a href="/Admin/MonThi">Subject</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/Admin/KetQua"><i class="fa fa-random"></i> Kết quả</a></li>
+                                <li><a href="/Admin/KetQua"><i class="fa fa-random"></i> All Results</a></li>
                             </ul>
                         </div>
                         <div class="menu_section">
-                            <h3>Cài đặt</h3>
+                            <h3>Settings</h3>
                             <ul class="nav side-menu">
                                 <li>
-                                    <a><i class="fa fa-user"></i> Tài khoản <span class="fa fa-chevron-down"></span></a>
+                                    <a><i class="fa fa-user"></i> Account <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="/Admin/Account">Quản lý tài khoản</a></li>
+                                        <li><a href="/Admin/Account">Admin Account</a></li>
+                                        <!--
                                         <li><a href="projects.html">Quản lý quyền</a></li>
+                                        -->
+
                                     </ul>
                                 </li>
                             </ul>
