@@ -101,7 +101,7 @@
 }
 
 .form-content {
-    background-color: #0093FF;
+    background-color: #2A3F54;
 }
 
 .form-content .form-group {
@@ -187,11 +187,11 @@
 }
 
 .form-content input[type="checkbox"]:checked + label:after, .form-content input[type="checkbox"]:not(:checked) + label:after {
-    color: #0093FF;
+    color: #2A3F54;
 }
 
 .form-content input[type="radio"]:checked + label:after, .form-content input[type="radio"]:not(:checked) + label:after {
-    background-color: #0093FF;
+    background-color: #2A3F54;
 }
 
 .form-content .custom-options input[type="checkbox"]:not(:checked) + label, .form-content .custom-options input[type="checkbox"]:checked + label, .form-content .custom-options input[type="radio"]:not(:checked) + label, .form-content .custom-options input[type="radio"]:checked + label {
