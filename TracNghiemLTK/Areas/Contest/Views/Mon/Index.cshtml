@@ -1,13 +1,13 @@
 ﻿@model List<DataLTK.MonThi>
 @{
-    ViewBag.Title = "Môn học";
+    ViewBag.Title = "Subject";
     Layout = "~/Areas/Contest/Views/Shared/_Layout.cshtml";
 }
 
 <div class="title_right">
     <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Nhập từ khóa...">
+            <input type="text" class="form-control" placeholder="Search...">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button">Go!</button>
             </span>
@@ -19,7 +19,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Môn học <small>Danh sách</small></h2>
+                <h2>Subjects</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
                         <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -28,10 +28,10 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="#">Cài đặt 1</a>
+                                <a href="#">Settings 1</a>
                             </li>
                             <li>
-                                <a href="#">Cài đặt 2</a>
+                                <a href="#">Settings 2</a>
                             </li>
                         </ul>
                     </li>
@@ -45,8 +45,8 @@
                 <table class="table table-hover table-responsive">
                     <thead>
                         <tr>
-                            <th>Mã môn</th>
-                            <th>Tên môn</th>
+                            <th>Subject Code</th>
+                            <th>Name</th>
                         </tr>
                     </thead>
                     <tbody>

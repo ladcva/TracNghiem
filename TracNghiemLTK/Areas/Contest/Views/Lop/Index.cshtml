@@ -1,13 +1,13 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Class";
     Layout = "~/Areas/Contest/Views/Shared/_Layout.cshtml";
 }
 
 @model List<DataLTK.ThiSinh>
 <div class="x_panel">
     <div class="x_title">
-        <h2>Thí sinh <small>Danh sách lớp @Html.DisplayName(Model.Select(x=>x.Lop.TenLop).FirstOrDefault())</small></h2>
+        <h2>My Class <small>@Html.DisplayName(Model.Select(x=>x.Lop.TenLop).FirstOrDefault())</small></h2>
         <ul class="nav navbar-right panel_toolbox">
             <li>
                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -33,11 +33,11 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Mã thí sinh</th>
-                    <th>Tên thí sinh</th>
-                    <th>Giới tính</th>
-                    <th>Ngày sinh</th>
-                    <th>Địa chỉ</th>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Address</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,11 +48,11 @@
                         <td>@item.HoTen</td>
                         @if (item.GioiTinh == true)
                         {
-                            <td>Nam</td>
+                            <td>Male</td>
 }
                         else
                         {
-                            <td>Nữ</td>
+                            <td>Female</td>
 }
                         <td>@(item.NgaySinh.HasValue ? item.NgaySinh.Value.ToString("dd/MM/yyyy") : "Chưa rõ")</td>
                         <td>@item.DiaChi</td>

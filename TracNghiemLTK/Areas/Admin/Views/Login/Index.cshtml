@@ -6,91 +6,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Đăng nhập hệ thống </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Online Examination System for Admin</title>
     <!-- Bootstrap -->
-    <link href="/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="@Url.Content("/Content/vendors/bootstrap/dist/css/bootstrap.min.css")" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="/Content/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="@Url.Content("/Content/vendors/font-awesome/css/font-awesome.min.css")" rel="stylesheet">
     <!-- NProgress -->
-    <link href="/Content/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="@Url.Content("/Content/vendors/nprogress/nprogress.css")" rel="stylesheet">
     <!-- Animate.css -->
     <link href="/Content/vendors/animate.css/animate.min.css" rel="stylesheet">
     <!-- Custom Theme Style --->
-    <link href="/Content/build/css/custom.min.css" rel="stylesheet">
+    <link href="@Url.Content("/Content/build/css/custom.min.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("/Content/build/css/iofrm-style.css")" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("/Content/build/iofrm-theme10.css")" rel="stylesheet" type="text/css">
 </head>
 <body class="login">
-    <div>
-        <a class="hiddenanchor" id="signup"></a>
-        <a class="hiddenanchor" id="signin"></a>
-        <div class="login_wrapper">
-            <div class="animate form login_form">
-                <section class="login_content">
-                    @using (Html.BeginForm())
-                    {
-                        <h1>Đăng nhập</h1>
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div>
-                            @Html.TextBoxFor(model => model.Username, new { @type = "text", @class = "form-control", @placeholder = "Tên đăng nhập", @required = "" })
-                        </div>
-                        <div>
-                            @Html.TextBoxFor(model => model.Password, new { @type = "password", @class = "form-control", @placeholder = "Mật khẩu", @required = "" })
-                        </div>
-                        <div>
-                            <button class="btn btn-default submit">Đăng nhập</button>
-                            <a class="reset_pass" href="#">Quên mật khẩu?</a>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="separator">
-                            <p class="change_link">
-                                Không thể đăng nhập?
-                                <a href="#signup" class="to_register"> báo lỗi </a>
-                            </p>
-                            <div class="clearfix"></div>
-                            <br />
-                            <div>
-                                <p>Copyright © Exam 2021</p>
-                            </div>
-                        </div>}
-                </section>
-            </div>
-            <div id="register" class="animate form registration_form">
-                <section class="login_content">
-                    <form>
-                        <h1>Báo lỗi</h1>
-                        <div>
-                            <input type="text" class="form-control" placeholder="Tài khoản" required="" />
-                        </div>
-                        <div>
-                            <input type="email" class="form-control" placeholder="Email" required="" />
-                        </div>
-                        <div>
-                            <input type="text" class="form-control" placeholder="Nội dung" required="" />
-                        </div>
-                        <div>
-                            <a class="btn btn-default submit" href="index.html">Nộp đơn</a>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="separator">
-                            <p class="change_link">
-                                Hủy báo lỗi ?
-                                <a href="#signin" class="to_register"> Đăng nhập </a>
-                            </p>
-                            <div class="clearfix"></div>
-                            <br />
-                            <div>
-                                <p>Copyright © Exam 2021</p>
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="website-logo-inside">
+                            <div class="logo">
+                                <img class="logo-size" src="~/Content/build/images/logo-light.svg" alt="">
                             </div>
                         </div>
-                    </form>
-                </section>
+                        <h3>Online Examination System</h3>
+                        <p>For Administrators</p>
+                        <div class="page-links">
+                            <a href="" class="active">Admin Login</a>
+                        </div>
+                        <div>
+                            @if (ViewData.ModelState[""] != null && ViewData.ModelState[""].Errors.Count > 0)
+                            {
+                                <div class="alert alert-warning">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    @Html.ValidationSummary(true, "Errors: ")
+                                </div>
+                            }
+                        </div>
+                        <form>
+                            <input class="form-control" type="text" name="username" placeholder="Username" required>
+                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                            <div class="form-button">
+                                <button id="submit" formmethod="post" type="submit" class="ibtn">Login</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 
 </body>
 </html>

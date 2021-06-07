@@ -1,13 +1,13 @@
 ﻿@model List<DataLTK.DeThi>
 @{
-    ViewBag.Title = "Trang chủ";
+    ViewBag.Title = "Homepage";
     Layout = "~/Areas/Contest/Views/Shared/_Layout.cshtml";
 }
 
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Đề thi <small>Chọn một đề thi</small></h2>
+            <h2>Exam List <small>Choose an exam</small></h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li>
                     <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -16,10 +16,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                            <a href="#">Cài đặt 1</a>
+                            <a href="#">Settings 1</a>
                         </li>
                         <li>
-                            <a href="#">Cài đặt 2</a>
+                            <a href="#">Settings 2</a>
                         </li>
                     </ul>
                 </li>
@@ -33,11 +33,11 @@
             <table class="table table-striped jambo_table bulk_action">
                 <thead>
                     <tr class="headings">
-                        <th class="column-title">Mã đề </th>
-                        <th class="column-title">Môn thi </th>
-                        <th class="column-title">Trạng thái </th>
+                        <th class="column-title">Exam Code </th>
+                        <th class="column-title">Subject </th>
+                        <th class="column-title">Status </th>
                         <th class="column-title no-link last">
-                            <span class="nobr">Tác vụ</span>
+                            <span class="nobr">Action</span>
                         </th>
                     </tr>
                 </thead>
@@ -49,28 +49,28 @@
                             <td class=" ">@item.MaDe</td>
                             <td class=" ">@item.MonThi.TenMon </td>
                             <td class=" ">
-                                @if(item.Status == true)
+                                <!--will add logic to process showing done exams -->
+                                @if (item.Status == true)
                                 {
-                                    <span class="btn btn-success btn-xs">Mở</span>
-}
+                                    <span class="btn btn-success btn-xs">Ongoing</span>
+                                }
                                 else
                                 {
-                                    <span class="btn btn-danger btn-xs">Đóng</span>
-}
+                                    <span class="btn btn-danger btn-xs">Closed</span>
+                                }
                             </td>
                             <td class=" last">
                                 @if (item.Status == true)
                                 {
-                                    @Html.ActionLink("Vào thi", "EnterContest", new { id = item.MaDe }, new { @class = "text-success" })
-}
+                                    @Html.ActionLink("Enter Exam", "EnterContest", new { id = item.MaDe }, new { @class = "text-success" })
+                                }
                                 else
                                 {
-                                    <span class="text-danger">Vào thi</span>
-}
-                               
+                                    <span class="text-danger"></span>
+                                }
                             </td>
-                        </tr>}
-                    
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

@@ -73,7 +73,7 @@
                             @item.ThiSinh.MaThiSinh
                         </td>
                         <td>@item.ThiSinh.HoTen</td>
-                        <td>@item.NgayThi.Day/@item.NgayThi.Month/@item.NgayThi.Year</td>
+                        <td>@(item.NgayThi.HasValue ? item.NgayThi.Value.ToString("dd/MM/yyyy") : "Không có dữ liệu")</td>
                         <td>
                             @item.Diem / 100
                         </td>

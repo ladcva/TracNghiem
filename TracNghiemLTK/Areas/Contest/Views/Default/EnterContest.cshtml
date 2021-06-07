@@ -1,6 +1,7 @@
 ﻿@model TracNghiemLTK.Areas.Contest.Models.EnterContestModel
+
 @{
-    ViewBag.Title = "EnterContest";
+    ViewBag.Title = "Enter Exam";
     Layout = "~/Areas/Contest/Views/Shared/_Layout.cshtml";
 }
 
@@ -13,47 +14,48 @@
                 @using (Html.BeginForm())
                 {
 
-                    <h1>Vào thi</h1>
+                    <h1>Enter exam</h1>
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div>
-                            @Html.TextBoxFor(model => model.Password, new { @type = "password", @class = "form-control", @placeholder = "Mật khẩu", @required = "" })
-                        </div>
-                        <div>
-                            <button class="btn btn-default submit">Bắt đầu</button>
-                            <a class="reset_pass" href="#">Quên mật khẩu?</a>
-                        </div>
+                    <div>
+                        @Html.TextBoxFor(model => model.Password, new { @type = "password", @class = "form-control", @placeholder = "Exam password", @required = "" })
+                    </div>
+                    <div>
+                        <button class="btn btn-default submit">Start</button>
+                        <br>
+                    </div>
+                    <a class="reset_pass" href="#">Forgot password ?</a>
+                    <div class="clearfix"></div>
+                    <div class="separator">
+                        <p class="change_link">
+                            Couldn't start ?
+                            <a href="#signup" class="to_register"> Report </a>
+                        </p>
                         <div class="clearfix"></div>
-                        <div class="separator">
-                            <p class="change_link">
-                                Không thể bắt đầu?
-                                <a href="#signup" class="to_register"> báo lỗi </a>
-                            </p>
-                            <div class="clearfix"></div>
-                        </div>
-}
+                    </div>
+                }
             </section>
         </div>
         <div id="register" class="animate form registration_form">
             <section class="login_content">
                 <form>
-                    <h1>Báo lỗi</h1>
+                    <h1>Report</h1>
                     <div>
-                        <input type="text" class="form-control" placeholder="Tài khoản" required="" />
+                        <input type="text" class="form-control" placeholder="Username" required="" />
                     </div>
                     <div>
                         <input type="email" class="form-control" placeholder="Email" required="" />
                     </div>
                     <div>
-                        <input type="text" class="form-control" placeholder="Nội dung" required="" />
+                        <input type="text" class="form-control" placeholder="Content" required="" />
                     </div>
                     <div>
-                        <a class="btn btn-default submit" href="index.html">Nộp đơn</a>
+                        <a class="btn btn-default submit" href="index.html">Submit</a>
                     </div>
                     <div class="clearfix"></div>
                     <div class="separator">
                         <p class="change_link">
-                            Hủy báo lỗi ?
-                            <a href="#signin" class="to_register"> Đăng nhập </a>
+                            Cancel report ?
+                            <a href="#signin" class="to_register"> Login </a>
                         </p>
                         <div class="clearfix"></div>
                         <br />
