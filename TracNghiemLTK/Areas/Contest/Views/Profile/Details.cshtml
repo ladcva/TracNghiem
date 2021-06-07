@@ -8,12 +8,12 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Hồ sơ cá nhân</h3>
+            <h3>My Profile</h3>
         </div>
         <div class="title_right">
             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                    <input type="text" class="form-control" placeholder="Search...">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">Go!</button>
                     </span>
@@ -27,7 +27,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Hồ sơ <small>Báo cáo hoạt động</small></h2>
+                    <h2>Student</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li>
                             <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -73,16 +73,16 @@
                                 </li>
                                 <li class="m-top-xs">
                                     <i class="fa fa-external-link user-profile-icon"></i>
-                                    Gender : @(Model.Select(x => x.GioiTinh).FirstOrDefault() == true?"Nam":"Nữ")
+                                    Gender : @(Model.Select(x => x.GioiTinh).FirstOrDefault() == true?"Male":"Female")
                                 </li>
                             </ul>
-                            <a class="btn btn-success" href="/Contest/Profile/Edit/@Url.RequestContext.RouteData.Values["id"]"><i class="fa fa-edit m-right-xs"></i>Sửa hồ sơ</a>
+                            <a class="btn btn-success" href="/Contest/Profile/Edit/@Url.RequestContext.RouteData.Values["id"]"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
                             <!-- end of skills -->
                         </div>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <div class="profile_title">
                                 <div class="col-md-6">
-                                    <h2>Báo cáo</h2>
+                                    <h2>Report</h2>
                                 </div>
                                 <div class="col-md-6">
                                     <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
@@ -117,18 +117,25 @@
                                             <tbody>
                                                 @foreach (var item in ListKQ)
                                                 {
-                                                    <tr>
-                                                        <td>@item.MaKetQua</td>
-                                                        <td>@item.MaDe</td>
-                                                        <td>@item.DeThi.MonThi.TenMon</td>
-                                                        <td class="hidden-phone">@(item.NgayThi.HasValue?item.NgayThi.Value.ToString("dd/MM/yyyy"): "Không có dữ liệu")</td>
-                                                        <td>@item.Diem / 100</td>
-                                                        <td class="vertical-align-mid">
-                                                            <div class="progress">
-                                                                <div class="progress-bar progress-bar-success" data-transitiongoal="@item.Diem"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                <tr>
+                                                    <td>@item.MaKetQua</td>
+                                                    <td>@item.MaDe</td>
+                                                    <td>@item.DeThi.MonThi.TenMon</td>
+                                                    <td class="hidden-phone">@(item.NgayThi.HasValue?item.NgayThi.Value.ToString("dd/MM/yyyy"): "Không có dữ liệu")</td>
+                                                    @if (item.Diem <= 40)
+                                                    {
+                                                        <td><b class="red">@item.Diem / 100</b></td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td><b class="green">@item.Diem / 100</b></td>
+}
+                                                    <td class="vertical-align-mid">
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-success" data-transitiongoal="@item.Diem"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
 }
                                                 
                                             </tbody>

@@ -23,24 +23,24 @@ namespace DataLTK
         }
     
         public int MaDe { get; set; }
-		[Display(Name = "Mô tả")]
+		[Display(Name = "Description")]
 		public string MoTa { get; set; }
         public Nullable<int> MaMon { get; set; }
-		[Display(Name = "Loại đề")]
+		[Display(Name = "Kind")]
 		public string LoaiDe { get; set; }
-		[Display(Name = "Ngày tạo")]
+		[Display(Name = "Date Created")]
 		public Nullable<System.DateTime> CreateDate { get; set; }
-		[Display(Name = "Người ra đề")]
+		[Display(Name = "Created by")]
 		public Nullable<int> CreateBy { get; set; }
-		[Display(Name = "Câu hỏi tối đa")]
+		[Display(Name = "Max Questions")]
 		public Nullable<int> MaxQuiz { get; set; }
-		[Display(Name = "Trạng thái")]
+		[Display(Name = "Status")]
 		public Nullable<bool> Status { get; set; }
-		[Display(Name = "Thời gian")]
+		[Display(Name = "Duration")]
 		public Nullable<int> Time { get; set; }
-		[Display(Name = "Âm thanh")]
+		[Display(Name = "Audio")]
 		public string Audio { get; set; }
-		[Display(Name = "Mật khẩu")]
+		[Display(Name = "Password")]
 		public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

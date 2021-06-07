@@ -66,7 +66,7 @@
                                 <img src="~/Content/images/img.jpg" alt="..." class="img-circle profile_img">}
                         </div>
                         <div class="profile_info">
-                            <span>Xin chào,</span>
+                            <span>Hello,</span>
                             <h2>@session.HoTen</h2>
                         </div>
                     </div>
@@ -75,12 +75,12 @@
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
-                            <h3>Bài thi</h3>
+                            <h3>Menu</h3>
                             <ul class="nav side-menu">
                                 <li>
                                     <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="/Contest/Default">Enter Test</a></li>
+                                        <li><a href="/Contest/Default">Exam</a></li>
                                         <li><a href="/Contest/Lop/Index/@session.MaLop">Class</a></li>
                                         <li><a href="/Contest/Mon">Subject</a></li>
                                     </ul>
@@ -88,7 +88,7 @@
                             </ul>
                         </div>
                         <div class="menu_section">
-                            <h3>Cài đặt</h3>
+                            <h3>Settings</h3>
                             <ul class="nav side-menu">
                                 <li>
                                     <a><i class="fa fa-user"></i> Account <span class="fa fa-chevron-down"></span></a>
@@ -123,7 +123,7 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                                     <li><a href="/Contest/Profile/Details/@session.MaThiSinh"> Profile</a></li>
-                                    <li>@Html.ActionLink("Đăng xuất", "Logout", "Default")</li>
+                                    <li>@Html.ActionLink("Logout", "Logout", "Default")</li>
                                 </ul>
                             </li>
                         </ul>
