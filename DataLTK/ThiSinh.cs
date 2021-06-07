@@ -22,9 +22,9 @@ namespace DataLTK
         }
     
         public int MaThiSinh { get; set; }
-		[Display(Name = "Họ và tên")]
+		[Display(Name = "Full name")]
 		public string HoTen { get; set; }
-		[Display(Name = "Giới tính")]
+		[Display(Name = "Gender")]
 		public Nullable<bool> GioiTinh { get; set; }
 		[Display(Name = "Ngày sinh")]
 		public Nullable<System.DateTime> NgaySinh { get; set; }
