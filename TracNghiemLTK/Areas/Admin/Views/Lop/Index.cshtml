@@ -53,9 +53,9 @@
                         <td>@item.Khoi</td>
                         <td>
                             <a href="/Admin/Lop/Edit/@item.MaLop" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                            @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaLop }, new AjaxOptions
+                            @Ajax.ActionLink("Delete", "Delete", new { @id = item.MaLop }, new AjaxOptions
                        {
-                           Confirm ="Xác nhận xóa!",
+                           Confirm ="Confirm Delete ?",
                            OnComplete = "$('#row_" + item.MaLop + "').remove()",
                            HttpMethod = "Delete"
                        }, new { @class = "btn btn-danger btn-xs" })

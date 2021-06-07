@@ -30,9 +30,9 @@ namespace DataLTK
 		public Nullable<System.DateTime> NgaySinh { get; set; }
 		[Display(Name = "Dân tộc")]
 		public string DanToc { get; set; }
-		[Display(Name = "Địa chỉ")]
+		[Display(Name = "Address")]
 		public string DiaChi { get; set; }
-		[Display(Name = "Lớp")]
+		[Display(Name = "Class")]
 		public Nullable<int> MaLop { get; set; }
 		[Display(Name = "Niên khóa")]
 		public string NienKhoa { get; set; }

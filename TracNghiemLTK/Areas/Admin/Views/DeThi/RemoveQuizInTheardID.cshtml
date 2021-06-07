@@ -1,14 +1,14 @@
 ﻿@model DataLTK.ch_db
 
 @{
-    ViewBag.Title = "Xóa câu hỏi trong đề bài";
+    ViewBag.Title = "Delete câu hỏi trong đề bài";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Đề bài <small>Xóa câu hỏi trong đề bài</small></h2>
+            <h2>Đề bài <small>Delete câu hỏi trong đề bài</small></h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li>
                     <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -55,8 +55,8 @@
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="Xóa" class="btn btn-default" /> |
-                @Html.ActionLink("Quay lại", "Index")
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("<< Back", "Index")
             </div>
         }
     </div>

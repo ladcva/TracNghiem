@@ -35,9 +35,9 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Mã câu hỏi</th>
+                        <th>ID</th>
                         <th>Câu hỏi</th>
-                        <th>Tác vụ</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,10 +56,10 @@
                                 }
                             @item.Quiz.CauHoi</td>
                             <td>
-                                @*<a href="/Admin/DeThi/RemoveQuizInTheardID/@item.id?theard=@Url.RequestContext.RouteData.Values["id"]" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Xóa </a>*@
-                                @Ajax.ActionLink("Xóa", "RemoveQuizInTheardID", new { @id = item.id, @theard = @Url.RequestContext.RouteData.Values["id"] }, new AjaxOptions
+                                @*<a href="/Admin/DeThi/RemoveQuizInTheardID/@item.id?theard=@Url.RequestContext.RouteData.Values["id"]" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>*@
+                                @Ajax.ActionLink("Delete", "RemoveQuizInTheardID", new { @id = item.id, @theard = @Url.RequestContext.RouteData.Values["id"] }, new AjaxOptions
                        {
-                           Confirm = "Xác nhận xóa!",
+                           Confirm = "Confirm Delete ?",
                            OnComplete = "$('#row_" + item.id + "').remove()",
                            HttpMethod = "Delete"
                        }, new { @class = "btn btn-danger btn-xs" })
@@ -67,9 +67,9 @@
                         </tr>}
                 </tbody>
             </table>
-            @*<a href="/Admin/DeThi/AddQuiz/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-success"><i class="fa fa-plus"></i> Thêm câu hỏi vào đề bài</a>*@
-            <a href="/Admin/DeThi/AddQuizs/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-warning"><i class="fa fa-plus-circle"></i> Thêm câu hỏi vào đề bài</a>
-            <a href="/Admin/DeThi" class="btn btn-default"><i class="fa fa-undo"></i> Quay lại</a>
+            @*<a href="/Admin/DeThi/AddQuiz/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-success"><i class="fa fa-plus"></i> Add question to exam</a>*@
+            <a href="/Admin/DeThi/AddQuizs/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-warning"><i class="fa fa-plus-circle"></i> Add question to exam</a>
+            <a href="/Admin/DeThi" class="btn btn-default"><i class="fa fa-undo"></i> << Back</a>
                 </div>
             @*<div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="x_title">
@@ -83,7 +83,7 @@
                             <i class="fa fa-file-pdf-o"></i> Tên đề: @Html.DisplayName(Model.Select(x => x.DeThi.MoTa).FirstOrDefault().ToString())
                         </li>
                         <li>
-                            <i class="fa fa-mail-forward"></i> Môn thi: @Html.DisplayName(Model.Select(x => x.DeThi.MonThi.TenMon).FirstOrDefault().ToString())
+                            <i class="fa fa-mail-forward"></i> Subject: @Html.DisplayName(Model.Select(x => x.DeThi.MonThi.TenMon).FirstOrDefault().ToString())
                         </li>
                         <li>
                             <i class="fa fa-picture-o"></i> Thời gian: @Html.DisplayName(Model.Select(x => x.DeThi.Time).FirstOrDefault().ToString()) phút

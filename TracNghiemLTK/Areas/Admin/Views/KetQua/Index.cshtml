@@ -78,9 +78,9 @@
                             @item.Diem / 100
                         </td>
                         @*<td>
-             @Ajax.ActionLink("Xóa", "Delete", new { @id = item.MaKetQua }, new AjaxOptions
+             @Ajax.ActionLink("Delete", "Delete", new { @id = item.MaKetQua }, new AjaxOptions
         {
-            Confirm = "Xác nhận xóa!",
+            Confirm = "Confirm Delete ?",
             OnComplete = "$('#row_" + item.MaKetQua + "').remove()",
             HttpMethod = "Delete"
         }, new { @class = "btn btn-danger btn-xs" })

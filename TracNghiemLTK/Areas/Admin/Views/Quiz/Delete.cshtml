@@ -1,14 +1,14 @@
 ﻿@model DataLTK.Quiz
 
 @{
-    ViewBag.Title = "Xóa câu hỏi";
+    ViewBag.Title = "Delete câu hỏi";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Câu hỏi <small>Xóa bỏ</small></h2>
+            <h2>Câu hỏi <small>Delete bỏ</small></h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li>
                     <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -97,7 +97,7 @@
                 @Html.AntiForgeryToken()
 
                 <div class="form-actions no-color">
-                    <input type="submit" value="Xóa" class="btn btn-danger" /> 
+                    <input type="submit" value="Delete" class="btn btn-danger" /> 
                     @Html.ActionLink("Cancel", "Index","",new { @class = "btn btn-default" })
                 </div>}
         </div>

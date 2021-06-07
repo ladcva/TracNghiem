@@ -1,7 +1,7 @@
 ﻿@model DataLTK.TaiKhoan
 
 @{
-    ViewBag.Title = "Hồ sơ của tôi";
+    ViewBag.Title = "My Profile";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -13,7 +13,7 @@
         <div class="title_right">
             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                    <input type="text" class="form-control" placeholder="Search...">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">Go!</button>
                     </span>
@@ -65,11 +65,11 @@
                         <h3>@Html.DisplayName(Model.HoTen)</h3>
                         <ul class="list-unstyled user_data">
                             <li>
-                                <i class="fa fa-map-marker user-profile-icon"></i> Địa chỉ: @Html.DisplayName(Model.DiaChi)
+                                <i class="fa fa-map-marker user-profile-icon"></i> Address: @Html.DisplayName(Model.DiaChi)
                             </li>
                             <li class="m-top-xs">
                                 <i class="fa fa-genderless user-profile-icon"></i>
-                                Giới tính: @Html.Encode(Model.GioiTinh == true ? "Nam" : "Nữ")
+                                Giới tính: @Html.Encode(Model.GioiTinh == true ? "Male" : "Female")
                             </li>
                         </ul>
                         @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.id }, new { @class="btn btn-success" })
@@ -78,25 +78,25 @@
                         <h4>Kỹ năng</h4>
                         <ul class="list-unstyled user_data">
                             <li>
-                                <p>Toán</p>
+                                <p>Mathematics</p>
                                 <div class="progress progress_sm">
                                     <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                                 </div>
                             </li>
                             <li>
-                                <p>Ngoại ngữ</p>
+                                <p>English</p>
                                 <div class="progress progress_sm">
                                     <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
                                 </div>
                             </li>
                             <li>
-                                <p>Ngữ văn</p>
+                                <p>History</p>
                                 <div class="progress progress_sm">
                                     <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
                                 </div>
                             </li>
                             <li>
-                                <p>Hóa học</p>
+                                <p>Chemistry</p>
                                 <div class="progress progress_sm">
                                     <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                                 </div>
@@ -107,7 +107,7 @@
                     <div class="col-md-9 col-sm-9 col-xs-12">
                         <div class="profile_title">
                             <div class="col-md-6">
-                                <h2>Báo cáo hoạt động</h2>
+                                <h2>Activity report</h2>
                             </div>
                             <div class="col-md-6">
                                 <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">

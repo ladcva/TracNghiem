@@ -159,7 +159,7 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
 					}
 					else
 					{
-						ModelState.AddModelError("", "Xóa thất bại");
+						ModelState.AddModelError("", "Delete thất bại");
 					}
 				}
 				return RedirectToAction("Index");
