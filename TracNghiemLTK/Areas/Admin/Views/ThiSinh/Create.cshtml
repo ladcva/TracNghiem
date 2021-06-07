@@ -1,7 +1,7 @@
 ﻿@model DataLTK.ThiSinh
 
 @{
-    ViewBag.Title = "Thêm mới thí sinh";
+    ViewBag.Title = "Add student";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -22,13 +22,13 @@
 </script>
 <div class="page-title">
     <div class="title_left">
-        <h3>Thí sinh</h3>
+        <h3>Student</h3>
     </div>
 
     <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                <input type="text" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Go!</button>
                 </span>
@@ -82,9 +82,9 @@
                         <div class="col-md-10">
                                 @Html.DropDownList("GioiTinh",new List<SelectListItem>
                            {
-                               new SelectListItem{ Text = "Nam", Value = "True"},
-                               new SelectListItem{ Text = "Nữ", Value = "False"}
-                           }, "Chọn giới tính", new { @class="form-control" })
+                               new SelectListItem{ Text = "Male", Value = "True"},
+                               new SelectListItem{ Text = "Female", Value = "False"}
+                           }, "Select Gender", new { @class="form-control" })
                                 @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.MaLop, "Lớp", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.MaLop, "Class", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.DropDownList("MaLop", null, htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.MaLop, "", new { @class = "text-danger" })
@@ -152,7 +152,7 @@
                 </div>}
 
             <div>
-                @Html.ActionLink("Hủy bỏ", "Index")
+                @Html.ActionLink("Cancel", "Index")
             </div>
         </div>
         

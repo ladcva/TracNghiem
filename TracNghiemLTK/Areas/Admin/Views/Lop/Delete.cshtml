@@ -1,7 +1,7 @@
 ﻿@model DataLTK.Lop
 
 @{
-    ViewBag.Title = "Xóa lớp";
+    ViewBag.Title = "Delete Class";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -31,7 +31,7 @@
             <div class="clearfix"></div>
         </div>
 
-        <h3>Bạn có chắc chắn muốn xóa?</h3>
+        <h3>Are you sure ?</h3>
         <div>
             <dl class="dl-horizontal x_content">
                 <dt>
@@ -58,7 +58,7 @@
 
                 <div class="form-actions no-color">
                     <input type="submit" value="Delete" class="btn btn-danger" /> 
-                    @Html.ActionLink("Hủy bỏ", "Index","", new { @class="btn btn-default"})
+                    @Html.ActionLink("Cancel", "Index","", new { @class="btn btn-default"})
                 </div>}
         </div>
 </div>
