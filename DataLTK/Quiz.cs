@@ -23,15 +23,15 @@ namespace DataLTK
     
         public int MaCauHoi { get; set; }
         public Nullable<int> MaMon { get; set; }
-		[Display(Name = "Câu hỏi")]
+		[Display(Name = "Question")]
 		public string CauHoi { get; set; }
-		[Display(Name = "Hình ảnh")]
+		[Display(Name = "Image")]
 		public byte[] Picture { get; set; }
         public string A { get; set; }
         public string B { get; set; }
         public string C { get; set; }
         public string D { get; set; }
-		[Display(Name = "Đáp án")]
+		[Display(Name = "Correct answer")]
 		public string DapAn { get; set; }
 		public bool table_records { get; set; }
 

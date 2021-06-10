@@ -9,7 +9,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Đề bài <small>Thêm câu hỏi vào Exam</small></h2>
+            <h2>Add Questions</h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li>
                     <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -38,7 +38,7 @@
 
             <div class="form-horizontal x_content">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <p>Số câu hỏi tối đa cho đề bài này là: <code>3/20</code> </p>
+                <p>Maximum questions: <code>15/20</code> </p>
                 <div class="table-responsive">
                     <table class="table table-striped jambo_table bulk_action">
                         <thead>
@@ -80,7 +80,7 @@
                         </table>
                     </div>
 
-                    <button class="btn btn-success" onclick="return confirm('Xác nhận thêm các câu hỏi đã chọn')"><i class="fa fa-plus"></i> Thêm đã chọn</button>
+                    <button class="btn btn-success" onclick="return confirm('Confirm add ?')"><i class="fa fa-plus"></i> Add selected</button>
                 </div>
         }
 

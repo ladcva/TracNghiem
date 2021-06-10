@@ -1,14 +1,14 @@
 ﻿@model List<DataLTK.ch_db>
 
 @{
-    ViewBag.Title = "Chi tiết đề bài";
+    ViewBag.Title = "Exam details";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Đề bài <small>Danh sách câu hỏi</small></h2>
+            <h2>Exam questions</h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li>
                     <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -36,7 +36,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Câu hỏi</th>
+                        <th>Question</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -71,28 +71,28 @@
             <a href="/Admin/DeThi/AddQuizs/@Url.RequestContext.RouteData.Values["id"]" class="btn btn-warning"><i class="fa fa-plus-circle"></i> Add question to exam</a>
             <a href="/Admin/DeThi" class="btn btn-default"><i class="fa fa-undo"></i> << Back</a>
                 </div>
-            @*<div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="x_title">
-                    <h4>Thông tin đề bài</h4>
+                    <h4>Exam details</h4>
                 </div>
                 <ul class="list-unstyled project_files">
                         <li>
-                            <i class="fa fa-file-word-o"></i> Mã đề: @Html.DisplayName(Model.Select(x=>x.MaDe).FirstOrDefault().ToString())
+                            <i class="fa fa-file-word-o"></i> Code: @Html.DisplayName(Model.Select(x=>x.MaDe).FirstOrDefault().ToString())
                         </li>
                         <li>
-                            <i class="fa fa-file-pdf-o"></i> Tên đề: @Html.DisplayName(Model.Select(x => x.DeThi.MoTa).FirstOrDefault().ToString())
+                            <i class="fa fa-file-pdf-o"></i> Description: @Html.DisplayName(Model.Select(x => x.DeThi.MoTa).FirstOrDefault().ToString())
                         </li>
                         <li>
                             <i class="fa fa-mail-forward"></i> Subject: @Html.DisplayName(Model.Select(x => x.DeThi.MonThi.TenMon).FirstOrDefault().ToString())
                         </li>
                         <li>
-                            <i class="fa fa-picture-o"></i> Thời gian: @Html.DisplayName(Model.Select(x => x.DeThi.Time).FirstOrDefault().ToString()) phút
+                            <i class="fa fa-picture-o"></i> Time allowed: @Html.DisplayName(Model.Select(x => x.DeThi.Time).FirstOrDefault().ToString()) minutes
                         </li>
                         <li>
-                            <i class="fa fa-file-word-o"></i> Ngày tạo: @Html.DisplayName(Model.Select(x => x.DeThi.CreateDate).FirstOrDefault().ToString())
+                            <i class="fa fa-file-word-o"></i> Date Created: @Html.DisplayName(Model.Select(x => x.DeThi.CreateDate).FirstOrDefault().ToString())
                     
                 </ul>
-            </div>*@
+            </div>
         </div>
     </div>
 </div>

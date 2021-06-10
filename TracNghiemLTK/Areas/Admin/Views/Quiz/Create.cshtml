@@ -1,7 +1,7 @@
 ﻿@model DataLTK.Quiz
 
 @{
-    ViewBag.Title = "Tạo câu hỏi mới";
+    ViewBag.Title = "New question";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -20,7 +20,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Câu hỏi <small>Tạo mới</small></h2>
+            <h2>Create a new question</h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li>
                     <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class = "control-label col-md-2">Hình ảnh <i style="color:gray;font-weight:400">(Tùy chọn)</i></label>
+                    <label class = "control-label col-md-2">Image <i style="color:gray;font-weight:400">(Optional)</i></label>
                     <div class="col-md-10">
                         <img src="" class="img-thumbnail" id="impPrev" style="height:100px;width:100px;margin:5px" />
                         <input type="file" name="fileim" class="form-control" id="imageupload" accept=".png,.jpg,.gif" onchange="ShowPreview(this)" />
@@ -115,7 +115,7 @@
                                new SelectListItem{ Text = "B", Value = "B"},
                                new SelectListItem{ Text = "C", Value = "C"},
                                new SelectListItem{ Text = "D", Value = "D"}
-                           }, "Chọn đáp án", new { @class = "form-control" })
+                           }, "Correct answer", new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.DapAn, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -123,7 +123,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Tạo" class="btn btn-default" />
+                        <input type="submit" value="Create" class="btn btn-default" />
                     </div>
                 </div>
             </div>
