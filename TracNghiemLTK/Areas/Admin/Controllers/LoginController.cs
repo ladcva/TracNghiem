@@ -33,7 +33,7 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
 			}
 			else
 			{
-				ModelState.AddModelError("", "Đăng nhập không thành công!");
+				ModelState.AddModelError("", "Login failed, Please try again!");
 			}
 			return View(lg);
 		}
