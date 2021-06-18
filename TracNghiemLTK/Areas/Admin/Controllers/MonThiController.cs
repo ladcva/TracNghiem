@@ -46,7 +46,7 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
 					}
 					else
 					{
-						ModelState.AddModelError("", "Thêm thất bại");
+						ModelState.AddModelError("", "Add failed");
 					}
 				}
 				return RedirectToAction("Index");
@@ -80,7 +80,7 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
 					}
 					else
 					{
-						ModelState.AddModelError("", "Sửa thất bại");
+						ModelState.AddModelError("", "Edit failed");
 					}
 				}
 				return RedirectToAction("Index");
@@ -114,8 +114,7 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
 					}
 					else
 					{
-						ModelState.AddModelError("", "Delete thất bại");
-					}
+						ModelState.AddModelError("", "Delete failed
 				}
 				return RedirectToAction("Index");
             }

@@ -83,7 +83,7 @@ namespace TracNghiemLTK.Areas.Contest.Controllers
 						}
 						else
 						{
-							ModelState.AddModelError("", "Sửa thất bại");
+							ModelState.AddModelError("", "Edit failed");
 						}
 					}
 					else
@@ -98,7 +98,7 @@ namespace TracNghiemLTK.Areas.Contest.Controllers
 						}
 						else
 						{
-							ModelState.AddModelError("", "Sửa thất bại");
+							ModelState.AddModelError("", "Edit failed");
 						}
 					}
 

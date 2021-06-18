@@ -64,7 +64,7 @@
                            {
                                new SelectListItem{ Text = "Male", Value = "True"},
                                new SelectListItem{ Text = "Female", Value = "False"}
-                           }, "Chọn giới tính", new { @class = "form-control" })
+                           }, "Submit gender", new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -120,7 +120,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Lưu" class="btn btn-default" />
+                        <input type="submit" value="Save" class="btn btn-default" />
                     </div>
                 </div>
             </div>

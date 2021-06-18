@@ -36,7 +36,7 @@ namespace TracNghiemLTK.Areas.Contest.Controllers
 			{
 				if (tan1 > 0)
 				{
-					ModelState.AddModelError("", "Bạn đã làm bài thi này rồi!");
+					ModelState.AddModelError("", "You have done this exam!");
 				}
 				else
 				{
@@ -45,7 +45,7 @@ namespace TracNghiemLTK.Areas.Contest.Controllers
 			}
 			else
 			{
-				ModelState.AddModelError("", "Mật khẩu không đúng!");
+				ModelState.AddModelError("", "Wrong password!");
 			}
 			return View(lg);
 		}
