@@ -19,6 +19,7 @@ namespace TracNghiemLTK.Controllers
 		[HttpPost]
 		public ActionResult Index(LoginModel lg)
 		{
+			//Login
 			LoginData ld = new LoginData();
 			var res = ld.CheckLogin(lg.Username, lg.Password);
 			if(res == true)
@@ -40,6 +41,7 @@ namespace TracNghiemLTK.Controllers
 		}
 		public ActionResult MaSinhVien()
 		{
+			//get StudentData
 			ThiSinhData dt = new ThiSinhData();
 			var model = dt.ListThiSinh();
 			return View(model);
