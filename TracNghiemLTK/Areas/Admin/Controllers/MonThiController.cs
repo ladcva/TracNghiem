@@ -104,19 +104,21 @@ namespace TracNghiemLTK.Areas.Admin.Controllers
         {
             try
             {
-				// TODO: Add delete logic here
-				if (ModelState.IsValid)
-				{
-					var res = mt.Delete(id);
-					if (res)
-					{
-						return RedirectToAction("Index", "MonThi");
-					}
-					else
-					{
-						ModelState.AddModelError("", "Delete failed
-				}
-				return RedirectToAction("Index");
+                // TODO: Add delete logic here
+                if (ModelState.IsValid)
+                {
+                    var res = mt.Delete(id);
+                    if (res)
+                    {
+                        return RedirectToAction("Index", "MonThi");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Delete failed");
+                    }
+                    return RedirectToAction("Index");
+                }
+                return RedirectToAction("Index");
             }
             catch
             {
